@@ -290,6 +290,7 @@ ul li a::after {
     margin-left: -700px;
   }
   .slider-wrapper{
+    border-radius: 10px;
     background-color: #fff;
     position: relative;
     /* height: 500px; */
@@ -299,6 +300,7 @@ ul li a::after {
     
   }
   .slider{
+    border-radius: 10px ;
     height: 400px; 
      width: 400px;
     display: flex;
@@ -310,6 +312,7 @@ ul li a::after {
     box-shadow: 10px 10px 10px rgb(0, 0, 0);
   }
   .slider img{
+    border-radius: 10px;
     background-size: cover; 
     flex: 1 0 100% ;
     scroll-snap-align: start;
