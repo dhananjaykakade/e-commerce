@@ -35,6 +35,20 @@
     /* flex-direction:row; */
     justify-content: center;
 }
+#page{
+    text-align: center;
+}
+#page h1{
+    font-size: 100px;
+    color: white;
+    text-transform: uppercase;
+}
+#page p{
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+}
 .nav ul{
     display: flex;
     flex-direction:row;
