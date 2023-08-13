@@ -167,3 +167,16 @@ section{
     width: 100%;
     height: 100vh;
 }
+#shirts{
+    background-color: #F6F4EB;
+}
+#pants{
+    background-color: #91C8E4;
+}
+#sneakers{
+    background-color: #749BC2;
+}
+#footer{
+    max-height: 40vh;
+    background-color: #F2EAD3;
+}
