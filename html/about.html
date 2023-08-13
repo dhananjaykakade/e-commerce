@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dropdown Menu Example</title>
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    hi i am dhananjay kakade
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">About ▼</a>
+        <div class="dropdown-content">
+          <a href="#">Our Story</a>
+          <a href="#">Mission & Vision</a>
+          <a href="#">Team</a>
+        </div>
+      </li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <!-- Your content goes here -->
+  </div>
+
+  <script src="../javascripts/script.js"></script>
 </body>
 </html>
