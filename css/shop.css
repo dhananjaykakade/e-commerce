@@ -3,7 +3,7 @@
     margin: 0;
     /* color: ; */
     text-decoration: none;
-    font-family: roboto;
+    font-family: Merriweather;
     
 }
 /* )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
@@ -170,21 +170,43 @@ section{
     /* flex-direction: column-reverse; */
 }
 #main{
-    
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    /* align-items: center; */
+
     
     
 }
-main .dis{
-    
+
+#main .dis{
+    /* left: 0%; */
+    flex-direction: row ;
     height: 600px;
-    width: 500px;
+    width: 900px;
     bottom: 0%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+align-content: center;
+}
+#main .dis .text-con{
+    height: 100px;
+    width: 600px;
+    text-align: center;
+    margin-left: 100px;
+}
+#main .dis .text-con h1{
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+#main .dis .text-con a{
+    text-decoration: none;
+    color: #fff;
+}
+#main .dis .text-con a:hover{
+    color: rgb(127, 36, 36);
 }
 main .cards{   
     height: 500px;
@@ -281,10 +303,10 @@ main .cards{
     background-color: #F6F4EB;
 }
 #pants{
-    background-color: #91C8E4;
+    background-color: #F6F4EB;
 }
 #sneakers{
-    background-color: #749BC2;
+    background-color: #F6F4EB;
 }
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -293,7 +315,7 @@ footer */
 footer{
     padding: 30px;
     max-height: 50vh;
-    background-color: #F2EAD3;
+    background-color: #91C8E4;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -343,7 +365,7 @@ footer a{
 }
 footer .follow i:hover,
 footer a:hover{
-    color: aliceblue;
+    color: rgb(0, 0, 0);
 }
 footer .copyright{
     bottom: 0%;
@@ -354,3 +376,98 @@ footer .copyright{
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 footer */
+
+ .mainpro h2{
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    
+
+}
+/* #shirts  */
+.container{
+    flex-wrap: wrap;
+    margin: 30px 20px 20px 20px;
+    /* width: 100%; */
+    height: 400px;
+    /* background-size: cover; */
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    /* align-content: center; */
+}   
+/* #shirts */
+ .pro{
+    background-color: #fff;
+    margin-top: 15px;
+    position: relative;
+    width: 250px;
+    height: 300px;
+    transition: 0.3s ease;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.pro:hover{
+    box-shadow: 10px 10px 10px grey;
+}
+
+/* #shirts */
+ .container img{
+    margin-top: 25px;
+    background-size: cover; 
+    width: 180px;
+    height: 200px;
+    transition: transform 0.3s ease-in-out;
+    /* overflow: hidden; */
+    
+}
+  
+/* #shirts  */
+.pro h2{
+    margin-top: 10px;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+  }
+  /* #shirts  */
+  .pro  p{
+    font-size: 0.7rem;
+    margin-top: 10px;
+  }
+  .pro-img-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* background-color: rgba(0, 0, 0, 0.5); */
+	opacity: 0;
+	/* transition: opacity 0.3s ease-in-out; */
+  }
+ 
+  .pro-content {
+    text-align: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+	padding-right: 20px;
+	color: #030303;
+	/* background-color: rgba(0, 0, 0, 0.7); */
+	transition: transform 0.3s ease-in-out;
+	/* transform: translateY(100%); */
+  }
+  .pro-content a{
+    font-size: 10px;
+  }
+  .pro-content del{
+    text-decoration: line-through;
+  }
+  
+/*  ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+section 2 */

@@ -327,7 +327,7 @@ ul li a::after {
   ***********************************************
   carousel */
   .container-caro{
-    
+    height: 400px;
     margin-top: 2rem;
     padding: 2rem;
     /* left: 0%; */
@@ -337,8 +337,8 @@ ul li a::after {
     border-radius: 10px;
     background-color: #fff;
     position: relative;
-    /* height: 500px; */
-    /* width: 500px; */
+    height: 400px;
+    /* width: 400px; */
     max-width: 400px;
     margin: 0 auto;
     
@@ -370,6 +370,7 @@ ul li a::after {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
+    
   }
   .slider-nav a{
     width: 0.5rem;
@@ -380,6 +381,7 @@ ul li a::after {
     transition: opacity ease 200ms;
     border: solid 2px;
     border-color: #000000;
+   
   }
   .slider-nav a:hover{
     /* opacity: 1; */
@@ -395,7 +397,7 @@ footer */
 footer{
   padding: 30px;
   max-height: 50vh;
-  background-color: #F2EAD3;
+  background-color: #91C8E4;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
