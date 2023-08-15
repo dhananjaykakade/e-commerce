@@ -149,7 +149,7 @@ ul li a::after {
     right: 0;
     z-index: -222;
     position: absolute;
-    top: -14px;
+    top: -15px;
 }
 @media(min-aspect-ratio:16/9)
 {
@@ -336,66 +336,52 @@ ul li a::after {
   ***********************************************
   carousel */
   .container-caro{
-    height: 400px;
+    height: 500px;
     margin-top: 2rem;
     padding: 2rem;
     /* left: 0%; */
     margin-left: -700px;
-  }
-  .slider-wrapper{
-    border-radius: 10px;
-    background-color: #fff;
-    position: relative;
-    height: 400px;
-    /* width: 400px; */
-    max-width: 400px;
-    margin: 0 auto;
     
   }
-  .slider{
-    border-radius: 10px ;
-    height: 400px; 
-     width: 400px;
-    display: flex;
-    background-size: cover; 
-    aspect-ratio: 16/9;
-    scroll-snap-type:x mandatory;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    box-shadow: 10px 10px 10px rgb(0, 0, 0);
-  }
-  .slider img{
-    border-radius: 10px;
-    background-size: cover; 
-    flex: 1 0 100% ;
-    scroll-snap-align: start;
-    /* object-fit: cover; */
-  }
-  .slider-nav{
-    display: flex;
-    column-gap: 1rem;
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+  .swiper {
+    width: 300px;
+    height: 410px;
+    padding: 50px;
     
   }
-  .slider-nav a{
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background-color: #000000;
-    /* opacity: 0.75; */
-    transition: opacity ease 200ms;
-    border: solid 2px;
-    border-color: #000000;
+
+  .swiper-slide {
+    border-radius: 10px;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    max-height: 380px;
+    box-shadow: 10px 10px 10px rgb(34, 33, 33);
+  }
+  .swiper-slide h2{
+    font-size: 20px;
+    padding: 3px;
+    margin-bottom: 5px;
+    color: white;
+    background-color: black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .swiper-slide img {
    
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: block;
+    background-size: cover; 
+    width: 300px;
+    height: 350px;
+    
+    /* padding: 50px; */
   }
-  .slider-nav a:hover{
-    /* opacity: 1; */
-    background-color: #fff;
-  }
+  
   /* **********************************************
   ***************************end carousel
   ******************************************8** */

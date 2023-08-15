@@ -4,53 +4,26 @@ body, ul {
     padding: 0;
   }
   
-  /* Style for the navbar */
-  nav ul {
-    list-style: none;
-    background-color: #333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+  .swiper {
+    width: 300px;
+    height: 300px;
+    padding: 50px;
+    
   }
-  
-  nav a {
-    text-decoration: none;
-    color: white;
-    padding: 10px;
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
   }
-  
-  /* Style for the dropdown */
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropbtn {
-    cursor: pointer;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
+
+  .swiper-slide img {
+    border-radius: 10px;
     display: block;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #ddd;
-  }
-  
-  /* Show dropdown content on click */
-  .open {
-    display: block;
+    width: 300px;
+    height: 300px;
+    box-shadow: 10px 10px 10px gray;
+    /* padding: 50px; */
   }
   
