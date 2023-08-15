@@ -5,57 +5,59 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>FRESH FIT FINDS</title>
+    <title>FRESH FIT FINDS</title>
 </head>
 
-<body>
-    <section  id="main">
-    <video autoplay loop muted src="../assets/main/vid1.mp4" class="back-vid"></video> 
-    <nav class="nav">
-        <div class="logo">
-            <a href="#">
-                <img src="../assets/main/logo1.png" class="logo">
-            </a>
-        </div>
-        <ul id="navbar">
-            <li class="dropdown">
-                <a href="#" class="dropbtn"> shop</a>
-                <div class="dropdown-content">
-                  
-                            <a href="#">SHIRTS</a>
-                        
-                            <a href="#">PANTS</a>
-                        
-                            <a href="#">SNEAKERS</a>
-                     
-                </div>
-            </li>
-            <li>
-                <a href="#"> About</a>
-            </li>
-            <li>
-                <a href="#"> contact us</a>
-            </li>
-        </ul>
-        <div class="log">
-            <ul>
-                <li>
-                    <a href="#"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+<body >
+    <section id="main">
+        <video autoplay loop muted src="../assets/main/vid1.mp4" class="back-vid"></video>
+        <nav class="nav">
+            <div class="logo">
+                <a href="#">
+                    <img src="../assets/main/logo1.png" class="logo">
+                </a>
+            </div>
+            <ul id="navbar">
+                <li class="dropdown">
+                    <a href="#" class="dropbtn"> shop</a>
+                    <div class="dropdown-content">
+
+                        <a href="#">SHIRTS</a>
+
+                        <a href="#">PANTS</a>
+
+                        <a href="#">SNEAKERS</a>
+
+                    </div>
                 </li>
                 <li>
-                    <a href="#"> LOG IN</a>
-                </li>  
+                    <a href="#"> About</a>
+                </li>
+                <li>
+                    <a href="#"> contact us</a>
+                </li>
             </ul>
-        </div>
-    </nav>
-    <!-- <div class="com">
+            <div class="log">
+                <ul>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"> LOG IN</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <!-- <div class="com">
         <h1><h1>fresh fit finds</h1>
         <p>| collaborated with well known brands |</p></h1>
     </div>
@@ -65,12 +67,14 @@
             <p>| collaborated with well known brands |</p>
         </div>
     </section>
-    <section  id="offer">
-        <div class="fridaysale">
+    <section id="offer">
+        <div data-aos="fade-left" data-aos-delay="200"
+        data-aos-duration="1000" class="fridaysale">
             <h1>FRIDAY SALE </h1>
             <p>GET UP TO 50% OFF</p>
         </div>
-        <div class="container-caro">
+        <div data-aos="fade-right"  data-aos-delay="200"
+        data-aos-duration="1000" class="container-caro">
             <div class="slider-wrapper">
                 <div class="slider">
                     <img id="slide1" src="../assets/products/f1.jpg" alt="">
@@ -86,37 +90,42 @@
         </div>
     </section>
     <section id="product">
-        <div class="products">
+        <div  class="products">
             <h1>GET OFFER ON SELECTED PRODUCTS</h1>
-        <P>|  FRESH FIT FINDS  |</P>
+            <P>| FRESH FIT FINDS |</P>
         </div>
-        
-        <div class="container">
-            <div class="card">
+
+        <div data-aos="fade-down"  data-aos-delay="200"
+        data-aos-duration="1000" class="container">
+            <div data-aos="flip-left" 
+            data-aos-delay="200"
+            data-aos-duration="1000"class="card">
                 <a href="#"><img src="../assets/products/jeans.jpg " class="card-img"></a>
                 <div class="card-content">
                     <h2>JEANS</h2>
-                <p>UPTO 50% OFF</p>
+                    <p>UPTO 50% OFF</p>
                 </div>
             </div>
-            <div class="card">
-                <a href="#"><img src="../assets/products/shirt.jpg"class="card-img" ></a>
+            <div data-aos="flip-left"  data-aos-delay="200"
+            data-aos-duration="1000"class="card">
+                <a href="#"><img src="../assets/products/shirt.jpg" class="card-img"></a>
                 <div class="card-content">
                     <h2>SHIRTS</h2>
-                <p>UPTO 50% OFF</p>
+                    <p>UPTO 50% OFF</p>
                 </div>
-                
+
             </div>
-            <div class="card">
-                <a href="#"><img src="../assets/sneakers/sneaker.jpg"class="card-img" ></a>
+            <div data-aos="flip-left"  data-aos-delay="200"
+            data-aos-duration="1000" class="card">
+                <a href="#"><img src="../assets/sneakers/sneaker.jpg" class="card-img"></a>
                 <div class="card-content">
                     <h2>SNEAKERS</h2>
-                <p>UPTO 50% OFF</p>
+                    <p>UPTO 50% OFF</p>
                 </div>
             </div>
         </div>
     </section>
-   
+
     <footer id="footer">
 
         <div class="col">
@@ -156,8 +165,13 @@
             <p> © Copyright Dhananjay kakade 2023</p>
         </div>
     </footer>
-   
-         
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.esm.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script> -->
     <script src="../javascripts/index.js"></script>
     <script src="../javascripts/script.js"></script>
 </body>
