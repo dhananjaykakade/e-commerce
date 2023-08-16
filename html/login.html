@@ -11,6 +11,39 @@
 </head>
 
 <body>
+    <nav class="nav">
+        <div class="logo">
+            <a href="#">
+                <img src="../assets/main/logo1.png" class="logo">
+            </a>
+        </div>
+        <ul id="navbar">
+            <li class="dropdown">
+                <a href="#" class="dropbtn"> shop</a>
+                <div class="dropdown-content">
+                    <a href="#">SHIRTS</a>
+                    <a href="#">PANTS</a>
+                    <a href="#">SNEAKERS</a>
+                </div>
+            </li>
+            <li>
+                <a href="#"> About</a>
+            </li>
+            <li>
+                <a href="#"> contact us</a>
+            </li>
+        </ul>
+        <div class="log">
+            <ul>
+                <li>
+                    <a href="#"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+                </li>
+                <li>
+                    <a href="#"> LOG IN</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="hero">
         <div class="form-box">
             <div class="button-box">
@@ -44,26 +77,50 @@
 
         </form> -->
     </div>
-    <script>
-        var x = document.getElementById("login")
-        var y = document.getElementById("register")
-        var z = document.getElementById("btn")
-        function register() {
-            x.style.left = "-400px";
-            y.style.left = "50px";
-            z.style.left = "110px";
-        }
-        function login() {
-            x.style.left = "50px";
-            y.style.left = "450px";
-            z.style.left = "0px";
-        }
+    <footer id="footer">
 
-    </script>
-
+        <div class="col">
+            <img class="logo" src="../assets/main/logo1.png" alt="">
+            <h4><strong>CONTACT :</strong></h4>
+            <p><strong>ADDRESS:</strong>The FFF 410 Terry Ave N, Seattle 98109, WA.</p>
+            <p><strong>PHONE:</strong>763847343,45345353</p>
+            <p><strong>HOURS:</strong>10:00 to 19:00 mon.to fri.</p>
+            <div class="follow">
+                <h4>Follow</h4>
+                <div class="follow-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-github"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+        </div>
+        <div class="col install">
+            <h4>Install</h4>
+            <p>from app store or google play</p>
+            <div class="row">
+                <img src="../assets/pay/app.jpg" alt="">
+                <img src="../assets/pay/play.jpg" alt="">
+            </div>
+            <p>from app store or google play</p>
+            <img src="../assets/pay/pay.png" alt="">
+        </div>
+        <div class="copyright">
+            <p> © Copyright Dhananjay kakade 2023</p>
+        </div>
+    </footer>
+    <script src="../javascripts/login.js"></script>
+    <script src="../javascripts/script.js"></script>
 
 </body>
 
-</body>
+
 
 </html>
