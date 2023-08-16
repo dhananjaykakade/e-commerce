@@ -365,7 +365,7 @@ footer a{
 }
 footer .follow i:hover,
 footer a:hover{
-    color: rgb(0, 0, 0);
+  color: aliceblue;
 }
 footer .copyright{
     bottom: 0%;
@@ -467,6 +467,7 @@ footer */
   .pro-content del{
     text-decoration: line-through;
   }
+
   
 /*  ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
