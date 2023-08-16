@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
 .hero {
@@ -10,32 +11,23 @@
     background-position: center;
     background-size: cover;
     position: absolute;
+    
 }
 
 .form-box {
     width: 380px;
     height: 480px;
     position: relative;
-    margin-right: 2%;
-    margin-top: 7%;
-    margin-left: 21%;
-    margin-bottom: 1%;
+    margin: 6% auto;
     background: #fff;
     padding: 5px;
-
-
 }
 
 .button-box {
-    width: 209px;
-    margin-bottom: 70%;
-    margin-left: 27%;
-    margin-top: -31%;
-    margin-right: 5%;
-
-
+    width: 220px;
+    margin: 35px auto;
     position: relative;
-    box-shadow: 0 0 20px 9px #3748c91f;
+    box-shadow: 0 0 20px 9px #1338dc1f;
     border-radius: 30px;
 }
 
@@ -46,17 +38,54 @@
     border: 0;
     outline: none;
     position: relative;
+
 }
 
 #btn {
-    margin-bottom: 70%;
-    margin-left: 27%;
-    margin-top: -31%;
-    margin-right: 5%;
-
-
-  
-    background: linear-gradient(to right, #1b31d51f, #0819981f);
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #4332db, #7a7ddc);
     border-radius: 30px;
     transition: .5s;
+}
+.input-group{
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+
+}
+.input-field{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+.sumbit-btn{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #4332db, #7a7ddc);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+
+}
+#login{
+    left: 50px;
+
+}
+#register{
+    left: 450px;
+
 }
