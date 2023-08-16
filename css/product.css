@@ -310,7 +310,7 @@ del{
     text-align: left;
     margin-top: 20px;
     width: 70%;
-    border-bottom: 1px solid black;
+   
     padding-bottom: 10px;
 }
 
@@ -318,20 +318,20 @@ del{
     text-align: center;
     padding: 4px;
     margin-bottom: 10px;
-    border-bottom: 1px solid black;
+   
 }
 .details-pro{
     margin-top: 20px;
     width: 70%;
     text-align: left;
     padding-bottom: 10px;
-    border-bottom: 1px solid black;
+   
 }
 .details-pro h4{
     text-align: center;
     padding: 4px;
     margin-bottom: 10px;
-    border-bottom: 1px solid black;
+   
 }
 /* ********************************************************************************** */
 .swiper {
