@@ -15,21 +15,8 @@ document.addEventListener('click', (event) => {
   }
 });
 
-
-// *******************************************************************************
 var swiper = new Swiper(".mySwiper", {
-  effect: "flip",
-  grabCursor: true,
-  autoplay: {
-      delay: 1300,
-      disableOnInteraction: false,
+    pagination: {
+      el: ".swiper-pagination",
     },
-  pagination: {
-    el: ".swiper-pagination",
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
-
+  });

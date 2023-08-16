@@ -14,3 +14,8 @@ const hiddenelements = document.querySelectorAll('.hidden');
 hiddenelements.forEach();((e)=> observer.observe(e))
 
 
+
+gsap.to("#footer h4",{
+  opacity:0,
+  duration:1,
+})
