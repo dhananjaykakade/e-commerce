@@ -1,0 +1,317 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* color: ; */
+    text-decoration: none;
+    font-family: Merriweather;
+    
+}
+/* )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+section 1 nav bar  */
+.nav{
+    top: 0;
+    width: 100%;
+    padding: 5px;
+    height: 80px;
+    position: fixed;
+    /* background-color: #91c8e4; */
+    background-color: #4682A9;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    z-index: 9999;
+    
+
+}
+#main{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    /* flex-direction:row; */
+    justify-content: center;
+}
+#page{
+    text-align: center;
+}
+#page h1{
+    font-size: 100px;
+    color: white;
+    text-transform: uppercase;
+}
+#page p{
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+}
+.nav ul{
+    display: flex;
+    flex-direction:row;
+    /* align-items: center; */
+    /* align-content: center; */
+    justify-content: space-around; 
+    list-style: none;
+    position: relative;
+}
+
+ul li{
+  display: inline-block;
+  position: relative;
+}
+ul li a{
+    color: rgb(255, 255, 255);
+    padding: 8px 12px;
+    margin: 0 10px;
+    position: relative;
+    /* background-color: black; */
+    text-decoration: none;
+    text-transform: uppercase;
+    /* position: relative; */
+    
+}
+ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px; /* Adjust this thickness as needed */
+    background-color: black; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out; 
+  }
+  
+  ul li a:hover::after {
+    width: 100%;
+  }
+  /* *************888888888888888888888888888888888888888888888888888
+  *************8888888888888888888888888888888888888888888888888888888
+  submenu */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropbtn {
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    margin-top: 35px;
+    display: none;
+    position: absolute;
+    background-color: #4682A9;
+    min-width: 160px;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+  }
+  
+  
+  
+  /* Show dropdown content on click */
+  .open {
+    display: block;
+  }
+  /* *************88888888888888888888888888888888888888888888888
+  *************888888888888888888888888888888888888888888888888
+  submenu */
+.logo{
+    padding-left: 5px;
+    height: 53px;
+    width: 100px;
+    border-radius: 5px;
+}
+.logo img{
+    border-radius: 5px;
+}
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+footer */
+footer{
+    padding: 30px;
+    max-height: 50vh;
+    background-color: #91C8E4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer .col{
+   flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+footer .logo{
+    /* margin-top: 30px; */
+    margin-bottom: 30px;
+    /* left: -1%; */
+    /* padding-left: 5px; */
+    height: 53px;
+    width: 100px;
+    border-radius: 5px;
+}
+footer h4{
+    padding-bottom: 20px;
+    font-size: 15px;
+}
+footer p{
+    font-size: small;
+    margin-top: 2px;
+}
+footer .follow{
+    margin-top: 20px;
+}
+footer .follow i{
+    padding-right: 4px;
+    cursor: pointer;
+}
+footer .install .row img{
+    border: 1px solid rgb(82, 82, 255);
+    border-radius: 5px;
+}
+footer .install img{
+    margin: 10px 0 15px 0;
+}
+footer a{
+    text-decoration: none;
+    color: black;
+    margin-top: 2px;
+}
+footer .follow i:hover,
+footer a:hover{
+  color: aliceblue;
+}
+footer .copyright{
+    bottom: 0%;
+    text-align: center;
+    width: 100%;
+}
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+footer */
+#main::-webkit-scrollbar {
+    display: none;
+  
+  }
+  
+#main{
+    overflow-y: auto;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    display: flex;
+    margin-top: 200px;
+    justify-content: center;
+}
+.parent{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+
+}
+.product{
+    margin-right: 20px;
+    width: 50%;
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+#pic{
+    width: 200px;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+}
+.info{
+    width: 500px;
+}
+.content{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/* .details{
+/* padding: 10px; */
+ 
+.details h4{
+    font-size: larger;
+    padding-bottom: 10px;
+    
+}
+.details p{
+    padding: 5px 0;
+}
+del{
+    text-decoration: line-through;
+}
+.size-selector {
+    margin-right: 10px;
+    margin-top: 5px;
+    background-color: #fff;
+    /* padding: 20px; */
+    border-radius: 8px;
+    /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
+  }
+  
+  label {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+  
+  select {
+    width: 60px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .selector{
+    
+    display: flex;
+  }
+  .all-details{
+padding: 20px;
+  }
+  .price{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .buy button{
+    font-size: large;
+    width: 100%;
+    height: 50px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+
+  }
+  .buy button:hover{
+    box-shadow: 5px 5px 10px rgb(88, 87, 87);
+    border: 3px solid black;
+    background-color: white;
+    color: black;
+  }

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="logo">
+            <a href="#">
+                <img src="../assets/main/logo1.png" class="logo">
+            </a>
+        </div>
+        <ul id="navbar">
+            <li>
+                <a class="a" href="#"> SHOP</a>
+            </li>
+            <li>
+                <a class="a" href="#"> About</a>
+            </li>
+            <li>
+                <a class="a" href="#"> contact us</a>
+            </li>
+        </ul>
+        
+        <div class="log">
+            <ul>
+                <li>
+                    <a href="#"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn"> LOG IN</a>
+                    <div class="dropdown-content">
+                        <a href="/register">register</a>
+                        <a href="/Login">profile</a>
+                        <a href="#">log out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+   <section id="main">
+    <div class="hero">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="Button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="Button" class="toggle-btn" onclick="register()">Register</button>
+
+
+            </div>
+            <form id="login" class="input-group" method="post" action="/" >
+                <input type="text" class="input-field" name="log_email" placeholder="User Name" required>
+                <input type="text" class="input-field"  name="log-password" placeholder="Enter Password" required>
+                 <input type="checkbox" class="chech-box"><span> Remember password</span> 
+                <input class="sumbit-btn" type="submit">
+                <!-- <button type="submit" class="sumbit-btn">Log In</button> -->
+
+            </form>
+            <form id="register" class="input-group" method="post" action="/register">
+                <input type="text" class="input-field" placeholder="User Name" name="name" required>
+                <input type="email" class="input-field" placeholder="Email Id" name="email" required>
+                <input type="text" class="input-field" placeholder="Enter Password" name="password" required>
+                <div class="check"><input type="checkbox" class="chech-box"><span>I agree terms and conditions</span></div>
+                
+                <input class="sumbit-btn" type="submit">
+                <!-- <button type="submit" class="sumbit-btn">Register</button> -->
+
+            </form>
+        </div>
+        <!-- <form class="input-group">
+        <input type="text" class="input-field" placeholder="User Name" required>
+        <input type="text" class="input-field" placeholder="Enter Password" required>
+        <input type="checkbox" class="chech-box"><span> Remember password</span>
+        <button type="submit" class="sumbit-btn">Log In</button>
+
+        </form> -->
+    </div>
+</section>
+    
+        <footer id="footer">
+
+            <div class="col">
+                <img class="logo" src="../assets/main/logo1.png" alt="">
+                <h4><strong>CONTACT :</strong></h4>
+                <p><strong>ADDRESS:</strong>The FFF 410 Terry Ave N, Seattle 98109, WA.</p>
+                <p><strong>PHONE:</strong>763847343,45345353</p>
+                <p><strong>HOURS:</strong>10:00 to 19:00 mon.to fri.</p>
+                <div class="follow">
+                    <h4>Follow</h4>
+                    <div class="follow-icons">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-github"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About Us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms and Conditions</a>
+            </div>
+            <div class="col install">
+                <h4>Install</h4>
+                <p>from app store or google play</p>
+                <div class="row">
+                    <img src="../assets/pay/app.jpg" alt="">
+                    <img src="../assets/pay/play.jpg" alt="">
+                </div>
+                <p>from app store or google play</p>
+                <img src="../assets/pay/pay.png" alt="">
+            </div>
+            <div class="copyright">
+                <p> © Copyright Dhananjay kakade 2023</p>
+            </div>
+        </footer>
+    
+   
+    <script src="../javascripts/login.js"></script>
+    <script src="../javascripts/script.js"></script>
+
+</body>
+
+
+
+</html>

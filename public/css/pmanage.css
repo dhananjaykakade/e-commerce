@@ -1,0 +1,84 @@
+*{
+  padding: 0;
+  margin: 0;
+  /* color: ; */
+  text-decoration: none;
+  font-family: roboto;
+  
+}
+body{
+  overflow-x: hidden;
+}
+
+section{
+    width: 100%;
+    height: 100vh;
+
+}
+nav{
+    
+    width: 100%;
+    height: 80px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+}
+ul{
+    margin-top: 20px;
+    text-align: center;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+ul li{
+    display: inline-block;
+  position: relative;
+}
+ul li a{
+    color: aliceblue;
+}
+.all-products{
+    margin: 30px;
+    width: 100%;
+}
+.container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: normal; /* Allow text to wrap */
+  }
+  th {
+    background-color: #f0f0f0;
+  }
+  .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  .images-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .images-column img {
+    max-width: 50px;
+    max-height: 50px;
+  }
