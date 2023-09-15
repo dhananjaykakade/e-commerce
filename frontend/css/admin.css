@@ -1,6 +1,6 @@
 *{
     padding: 0;
-    margin: 2px;
+    margin: 0;
     /* color: ; */
     text-decoration: none;
     font-family: roboto;
@@ -8,7 +8,7 @@
 }
 
 section{
-    width: 100%;
+    width: 90%;
     height: 100vh;
 
 }
