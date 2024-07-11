@@ -1,68 +1,78 @@
 const express = require("express");
 
-const dbconnect = require("./config/dbconnect")
+const dbconnect = require("./config/dbconnect");
 
 const path = require("path");
 
-const dotenv = require('dotenv');
+const passport = require("passport");
 
-dotenv.config({path:"./config/config.env"});
+const dotenv = require("dotenv");
 
-const bodyParser = require('body-parser');
+dotenv.config({ path: "./config/config.env" });
 
-const app =express();
+const bodyParser = require("body-parser");
+
+const app = express();
 
 app.use(express.json());
 
-const static_path = path.join(__dirname,"./public")
+const static_path = path.join(__dirname, "./public");
 
-app.use(express.static(static_path))
+app.use(express.static(static_path));
 
-app.set("view engine","ejs");
+app.set("view engine", "ejs");
 
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 
-const Login = require("./database/register");
+const session = require("express-session");
 
-const Product = require("./database/product");
+const methodOverride = require("method-override");
 
-const { Console } = require("console");
+app.use(methodOverride("_method"));
 
-const { name } = require("ejs");
+const flash = require("connect-flash");
+
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+
+const routes = require("./routes/user");
+const admin = require("./routes/admin");
+const product = require("./routes/product");
+const bag = require("./routes/bag");
+const Payment = require("./routes/payment");
+const errorHandler = require('./middleware/errorhandler');
+const logger = require('./middleware/logger');
+
+
 
 // const upload = require('./uplaods/multer');
 
 // const cloudinary = require('./cloud/cloudnary');
-
-const fs = require('fs');
+app.use(flash());
+const fs = require("fs");
 // *********************************************************************************
-const multer = require('multer');
-const cloudinary = require('cloudinary').v2;
-
+const multer = require("multer");
+const { send } = require("process");
+const cloudinary = require("cloudinary").v2;
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET
+  api_secret: process.env.API_SECRET,
 });
-
-
-
-
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, './uploads');
+    cb(null, "./uploads");
     // Temporary folder to store uploaded files
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname);
-  }
+    cb(null, Date.now() + "-" + file.originalname);
+  },
 });
 const upload = multer({ storage: storage });
 
-
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // *****************************************************************************************
 
@@ -70,199 +80,98 @@ app.use(bodyParser.json());
 dbconnect();
 
 
-app.listen(process.env.PORT,() => {
-  console.log(`server is started at port ${process.env.PORT}`)
-})
+// Middleware for session
+const MongoStore = require("connect-mongo");
+app.use(
+  session({
+    name: "user",
+    secret: "your-secret-key",
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.dbURI, // Replace with your MongoDB connection string
+      ttl: 7 * 24 * 60 * 60, // Session TTL in seconds (optional)
+      autoRemove: "interval",
+      autoRemoveInterval: 10, // Interval in minutes to remove expired sessions (optional)
+    }),
 
-
+    cookie: {
+      secure: false,
+      maxAge: 700000, // 1 hour in milliseconds
+    },
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // ************************************cloudinary config
 
-
-
-
-
 // templates*****************
-
-
-app.get("/home",(req,res) => {
-  res.render("index");
-});
-
-app.post("/home",(req,res) => {
-  res.render("index");
-});
-
-app.get("/register",(req,res) => {
-  res.render("login");
-});
-app.get("/Login",(req,res) => {
-  res.render("login2");
-});
-
-app.get("/admin/profile",(req,res) => {
-  res.render("admin");
-});
-app.get("/add-product",(req,res) => {
-  res.render("edit");
-});
-// *********************************************************manage
-app.get("/admin/profile/manage",async(req,res) => {
-  try {
-    const products = await Product.find().sort({ name: 1 }); 
-    res.render('pmanage', { products }); 
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error fetching products');
-  }
-});
-// *********************************************************manage
-
-app.get('/products', async (req, res) => {
-  try {
-    const products = await Product.find().sort({ category: 1, name: 1 });
-    const categories = [...new Set(products.map(product => product.category))].map(category => ({ name: category }));
-    res.render('shop', { products, categories });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error fetching products');
+app.get("/api/auth/status", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.json({ isLoggedIn: true });
+  } else {
+    res.json({ isLoggedIn: false });
   }
 });
 
+app.use("/", routes);
+app.use("/admin", admin);
+app.use("/product", product);
+app.use("/bag", bag);
+app.use("/payment", Payment);
 
-app.get('/product/:id', async (req, res) => {
-  try {
-    const productId = req.params.id;
-    const product = await Product.findById(productId);
-    res.render('product', { product });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error fetching product details');
-  }
+
+app.use((err, req, res, next) => {
+  errorHandler(err, req, res, next);
 });
 
-
-
-
-
-
-// routes************************************************
-app.post("/register",async(req,res) => {
+app.get("/demo1", (req, res) => {
   try {
-    const loginid = new Login({
-      name:req.body.name,
-      email:req.body.email,
-      password:req.body.password
-    })
+    const user = req.user;
+    if (!user) {
+      throw new Error("User not found!");
+    }
     
 
-    const logindb = await loginid.save();
-    res.redirect("/home");
-
-  } catch (error) {
-    res.status(400).send(error);
+    // If user is found, render the view template without error
+    res.render("demo", { error: null });
+  } catch (err) {
+    // If an error occurs, render the view template with the error message
+    res.render("demo", { error: err.message });
   }
-
-  
-  
 });
-// login 
-
-app.post("/Login", async (req,res) => {
-  try {
-    const email = req.body.log_email;
-    const pass = req.body.log_password;
+// Error handling middleware
 
 
-     console.log(`${email} and ${pass}`)
+app.get("/success", (req, res) => {
+  res.send("payment submitted successfully!");
+});
 
-     const user = await Login.findOne({email:email});
-     if (user.password===pass) {
-        res.redirect("home")
-     }
-     
-    //   if ( pass==="aaaa") {
-    //   res.render("admin")
-    //  }
-     
-     else{
-      res.send("incorrect password")
-     }
-  } catch (error) {
-    res.status(400).send(error)
-  }
+// Route for error page
+app.get("/error", (req, res) => {
+  res.send("error to submit payment ");
+});
+
+app.get("/payment", (req, res) => {
+  res.render("payment/payment");
+});
+app.get("*", (req, res) => {
+  res.render("notfound");
 });
 
 
-// **************************************to upload a products
-// app.use('/admin/products',upload.array('image'),async (req,res) => {
-//   const uploader = async (path) => await cloudinary.uploads(path,'images')
+const PORT = process.env.PORT || 3000;
 
-//   if (req.method==='POST') {
-//     const urls= []
-//     const files1 = req.files
-//     for(const file of files1)
-//     {
-//       const {path}=file 
-//       const newpath = await uploader(path);
-//       urls.push(newpath);
-//       fs.unlinkSync(path);
-
-
-//     }
-
-//     res.status(200).json({
-//       message:'successful',
-//       data:urls
-//     })
-//   }else{
-//     res.status(405).json({
-//       err:'failed',
-      
-//     })
-//   }
-
-// })
-
-
-
-app.post('/add-product',upload.array('images[]', 3), async (req, res) => {
-  console.log(req.body); // Debug: Check the content of req.body
-   console.log(req.files);
-  try {
-    const imageUploadPromises = req.files.map(file =>
-      cloudinary.uploader.upload(file.path, {
-        folder: 'product_images' // Customize the folder structure
-      })
-    );
-
-    const uploadedResults = await Promise.all(imageUploadPromises);
-    const imageUrls = uploadedResults.map(result => result.secure_url);
-
-    const newProduct = new Product({
-      name: req.body.name,
-      details: req.body.details,
-      price: req.body.price,
-      offer_price: req.body.offer_price,
-      discount: req.body.discount,
-      imageUrls: imageUrls,
-      category: req.body.category,
-    });
-
-    await newProduct.save();
-
-    // Clean up the temporary uploaded files
-    req.files.forEach(file => fs.unlinkSync(file.path));
-
-    res.redirect('/add-product');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error uploading product');
-  }
+app.listen(PORT, () => {
+  const serverStartTime = new Date().toLocaleString();
+  console.log(`
+    ====================================================
+    Server is started
+    Environment: ${process.env.NODE_ENV || 'development'}
+    Port: ${PORT}
+    Date and Time: ${serverStartTime}
+    Visit: http://localhost:${PORT}
+    ====================================================
+  `);
 });
-
-
-
-
-
-

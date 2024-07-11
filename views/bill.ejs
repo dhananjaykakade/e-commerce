@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main/bill.css">
+  <title>eBill</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.products {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.products th, .products td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.products th {
+    background-color: #f2f2f2;
+}
+
+.total {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.total h3 {
+    margin: 0;
+}
+
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+        <h2>Fresh Fit Finds</h2>
+    </div>
+    <div class="bill-info">
+        <div>
+            <p><strong>Transaction ID:</strong>  <%= PaymentDetails.transactionId %></p>
+            <p><strong>Date:</strong> <%= PaymentDetails.date %></p>
+            <p><strong>Shipping Address:</strong> <%= user.address %></p>
+            <p><strong>Payment Method:</strong> <%= PaymentDetails.type %></p>
+        </div>
+        <div>
+            <p><strong>Name:</strong> <%= user.name %></p>
+            <p><strong>Billing Name:</strong> <%= PaymentDetails.Name %></p>
+            <p><strong>Email:</strong> <%= user.email %></p>
+            <p><strong>Contact:</strong> <%= user.contactNumber %></p>
+        </div>
+    </div>
+    <table class="products">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% Paymente.forEach(payment=> { %>
+            <tr>
+                <td><%= payment.name %></td>
+                <td>$<%= payment.price %></td>
+                <td><%= payment.quantity %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <div class="total">
+        <h3>Total: $<%= PaymentDetails.amount %></h3>
+    </div>
+    <div class="footer">
+        <p>Thank you for shopping with us!</p>
+    </div>
+</div>
+  
+     
+</body>
+
+</html>

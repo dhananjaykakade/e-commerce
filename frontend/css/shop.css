@@ -287,6 +287,8 @@ main .cards{
 	transform: scale(1.1);
   } */
    
+
+
 .card1:hover {
     transform: scale(1.1); /* Zoom in on hover */
   }
@@ -316,13 +318,91 @@ main .cards{
   }
 #shirts{
     background-color: #F6F4EB;
+    
 }
 #pants{
     background-color: #F6F4EB;
+    overflow-y: scroll;
 }
 #sneakers{
     background-color: #F6F4EB;
+    overflow-y: scroll;
 }
+#shirts::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+  
+  /* Define the scrollbar track */
+  #shirts::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px; /* Background color of the scrollbar track */
+  }
+  
+  /* Define the scrollbar thumb */
+  #shirts::-webkit-scrollbar-thumb {
+    background-color: #000000; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners for the thumb */
+  }
+  
+  /* Define the scrollbar thumb on hover */
+  #shirts::-webkit-scrollbar-thumb:hover {
+    background-color: #534e4e; /* Color of the thumb on hover */
+  }
+  
+  /* Define the scrollbar corner */
+  #shirts::-webkit-scrollbar-corner {
+    background-color: #000; /* Background color of the scrollbar corner */
+  }
+  #sneakers::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+  
+  /* Define the scrollbar track */
+  #sneakers::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px; /* Background color of the scrollbar track */
+  }
+  
+  /* Define the scrollbar thumb */
+  #sneakers::-webkit-scrollbar-thumb {
+    background-color: #000000; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners for the thumb */
+  }
+  
+  /* Define the scrollbar thumb on hover */
+  #sneakers::-webkit-scrollbar-thumb:hover {
+    background-color: #534e4e; /* Color of the thumb on hover */
+  }
+  
+  /* Define the scrollbar corner */
+  #sneakers::-webkit-scrollbar-corner {
+    background-color: #000; /* Background color of the scrollbar corner */
+  }
+  #pants::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+  
+  /* Define the scrollbar track */
+  #pants::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px; /* Background color of the scrollbar track */
+  }
+  
+  /* Define the scrollbar thumb */
+  #pants::-webkit-scrollbar-thumb {
+    background-color: #000000; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners for the thumb */
+  }
+  
+  /* Define the scrollbar thumb on hover */
+  #pants::-webkit-scrollbar-thumb:hover {
+    background-color: #534e4e; /* Color of the thumb on hover */
+  }
+  
+  /* Define the scrollbar corner */
+  #pants::-webkit-scrollbar-corner {
+    background-color: #000; /* Background color of the scrollbar corner */
+  }
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -410,8 +490,7 @@ footer */
     /* background-size: cover; */
     display: flex;
     justify-content: space-evenly;
-    /* align-items: center; */
-    /* align-content: center; */
+   
 }   
 /* #shirts */
  .pro{
@@ -489,14 +568,97 @@ footer */
 section 2 */
 /*  ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
-section 3 */
+mobile responsive 3 */
 
 
+
+
+@media screen  and (max-width:414px){
+
+  #main{
+    background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%);
+  }
+  #footer{
+    max-height: 100vh;
+  
+  }
+  section{
+    overflow: hidden;
+  }
+  video{
+    display: none;
+  }
+  #main .dis{
+    width: 100%;
+    flex-direction: column;
+  }
+
+  #main .dis .text-con{
+    height: 100px;
+    width: 600px;
+    text-align: center;
+    margin-left: 0px;
+}
+#main .dis .text-con h1{
+  
+  padding: 10px;
+  word-wrap: inherit;
+    color: #fff;
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+#main .dis .text-con a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.container{
+  width: 100%;
+}
+
+ 
+
+}
 
 
 
 
 /*  ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
-section 2 */
+mobile responsive 2 */
 
+.items {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Display 3 products per row on mobile screens */
+  gap: 20px; /* Gap between products */
+}
+
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+  .items {
+      grid-template-columns: repeat(8, 1fr); /* Display 8 products per row on larger screens */
+  }
+}

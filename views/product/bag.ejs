@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/product/bag.css" />
+    <!-- <link rel="stylesheet" href="../css/shop.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <title>BAG</title>
+</head>
+
+<body>
+    <section id="main">
+        <nav class="nav">
+            <div class="logo">
+                <a href="/">
+                    <img src="../assets/main/logo1.png" class="logo" />
+                </a>
+            </div>
+            <ul id="navbar">
+                <li class="dropdown">
+                    <a href="/products" class="dropbtn"> shop</a>
+                   
+                </li>
+                <li>
+                    <a href="#"> About</a>
+                </li>
+                <li>
+                    <a href="#"> contact us</a>
+                </li>
+            </ul>
+            <div class="log">
+                <ul>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-cart-shopping" style="color: #ffffff"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"> LOG IN</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="parent">
+
+            <h2>BAG</h2>
+           
+                <div class="product">
+                    <% if (cart && cart.items && cart.items.length> 0) { %>
+                    <% cart.items.forEach((item) => { %>
+                    <div class="content">
+
+                        <div class="pic">
+                            <img id="pic" src="<%= item.imageUrls[0] %>" alt="" />
+                        </div>
+                        <div class="details">
+                            <h4>
+                                <%= item.name %>
+                            </h4>
+
+                            <span>₹<%= item.price %></span>
+
+                            <p>Quantity: <%= item.quantity %>
+                            </p>
+
+                            <p id="tax">
+                                incl. of taxes
+                                <br />
+                                <strong>(Also includes all applicable duties)</strong>
+                            </p>
+                            <div class="selector">
+                                <div class="size-selector">
+                                    <label for="size">Select quantity:</label>
+                                    <select id="quantity" name="quantity1">
+                                        <option value="<%= item.quantity %>">
+                                            <%= item.quantity %>
+                                        </option>
+                                        <option value="<%= item.quantity+1 %>">
+                                            <%= item.quantity+1 %>
+                                        </option>
+                                        <option value="<%= item.quantity+2 %>">
+                                            <%= item.quantity+2 %>
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <% }); %>
+                    <!-- for user who is not auth -->
+                    <!-- for user who is not auth -->
+                    <% } else { %>
+                        <p>Your cart is empty.</p>
+                    <% } %>
+    
+                </div>
+               
+               
+               
+                <div class="info">
+                    <h2>PRODUCT DETAILS</h2>
+                    <div class="all-details">
+                        <div class="price">
+                            <p>price</p>
+                            <span>₹</span>
+                        </div>
+                        <div class="price">
+                            <p>Delivery tax</p>
+                            <span>₹250</span>
+                        </div>
+                        <div class="price">
+                            <p>Total</p>
+                            <span id="totalPrice">₹</span>
+                        </div>
+                        <div class="buy">
+                            <button>CHECK OUT</button>
+                        </div>
+                    </div>
+              
+                </div>
+             
+        </div>
+
+    </section>
+    <footer id="footer">
+        <div class="col">
+            <img class="logo" src="../assets/main/logo1.png" alt="" />
+            <h4><strong>CONTACT :</strong></h4>
+            <p>
+                <strong>ADDRESS:</strong>The FFF 410 Terry Ave N, Seattle 98109, WA.
+            </p>
+            <p><strong>PHONE:</strong>763847343,45345353</p>
+            <p><strong>HOURS:</strong>10:00 to 19:00 mon.to fri.</p>
+            <div class="follow">
+                <h4>Follow</h4>
+                <div class="follow-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-github"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+        </div>
+        <div class="col install">
+            <h4>Install</h4>
+            <p>from app store or google play</p>
+            <div class="row">
+                <img src="../assets/pay/app.jpg" alt="" />
+                <img src="../assets/pay/play.jpg" alt="" />
+            </div>
+            <p>from app store or google play</p>
+            <img src="../assets/pay/pay.png" alt="" />
+        </div>
+        <div class="copyright">
+            <p>© Copyright Dhananjay kakade 2023</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="../javascripts/product/products.js"></script>
+    <script src="../javascripts/product/bag.js"></script>
+</body>
+
+</html>

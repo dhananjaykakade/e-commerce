@@ -1,0 +1,515 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F6F6F6;
+    width: 100%;
+
+  }
+/* Add this CSS to your stylesheet */
+.link-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+.link-container{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  
+}
+  
+
+  .nav{
+    top: 0;
+    width: 100%;
+    padding: 5px;
+    height: 80px;
+    position: fixed;
+    /* background-color: #91c8e4; */
+    background-color: #4682A9;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    z-index: 9999;
+    
+  
+  }
+  #main{
+  overflow: hidden;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    /* flex-direction:row; */
+    justify-content: center;
+  }
+  #page{
+    text-align: center;
+  }
+  #page h1{
+    font-size: 100px;
+    color: white;
+    text-transform: uppercase;
+  }
+  #page p{
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+  }
+  .nav ul{
+    display: flex;
+    flex-direction:row;
+    /* align-items: center; */
+    /* align-content: center; */
+    justify-content: space-around; 
+    list-style: none;
+    position: relative;
+  }
+  
+  ul li{
+  display: inline-block;
+  position: relative;
+  }
+  ul li .a{
+    color: rgb(255, 255, 255);
+    padding: 8px 12px;
+    margin: 0 10px;
+    position: relative;
+    /* background-color: black; */
+    text-decoration: none;
+    text-transform: uppercase;
+    /* position: relative; */
+    
+  }
+  .menuBtn {
+    display: none;
+  }
+  ul li .a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px; /* Adjust this thickness as needed */
+    background-color: black; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out; 
+  }
+  
+  ul li .a:hover::after {
+    width: 100%;
+  }
+  /* *************888888888888888888888888888888888888888888888888888
+  *************8888888888888888888888888888888888888888888888888888888
+  submenu */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropbtn {
+    color: rgb(255, 255, 255);
+    padding: 8px 12px;
+    margin: 0 10px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .dropbtn::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px; /* Adjust this thickness as needed */
+    background-color: black; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out; 
+  }
+  
+  .dropbtn:hover::after {
+    width: 100%;
+  }
+  
+  .dropdown-content {
+    left: -40px;
+    margin-top: 35px;
+    display: none;
+    position: absolute;
+    background-color: #4682A9;
+    min-width: 160px;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    
+    text-transform: uppercase;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+  }
+  
+  
+  
+  /* Show dropdown content on click */
+  .open {
+    display: block;
+  }
+  /* *************88888888888888888888888888888888888888888888888
+  *************888888888888888888888888888888888888888888888888
+  submenu */
+  .logo{
+    padding-left: 5px;
+    height: 53px;
+    width: 100px;
+    border-radius: 5px;
+  }
+  .logo img{
+    border-radius: 5px;
+  }
+
+  main {
+    margin-top: 100px;
+    padding: 1em;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .user-details {
+
+    width: 500px;
+    background-color: #f7f3e9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 20px;
+  }
+
+  .user-details h2 {
+    color: #333;
+  }
+
+  .user-details p {
+    font-size: 18px;
+    color: #555;
+  }
+
+  .edit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .edit-btn:hover {
+    background-color: #45a049;
+  }
+  h3{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+  }
+
+  label{
+    font-weight: 600;
+    font-size: 20px;
+    padding: 4px;
+  }
+  #username ,#name,#email,#contactNumber ,#address ,#currentPassword ,#newPassword{
+    padding-top: 4px;
+    height: 30px;
+    border: none;
+    width: 250px;
+    font-size: 18px;
+    border-bottom: 2px solid black;
+    background-color: #f7f3e9;
+    padding-right: 20px;
+  }
+  #contactNumber{
+    width: 200px;
+  }
+  input:focus {
+    outline: none; 
+    box-shadow: none; 
+  
+  }
+
+  .container{
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    display: flex;
+  }
+  button{
+    margin:  10px;
+    border: none;
+    background-color: royalblue;
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #submituser ,#submitemail ,#submitContact,#submitaddress ,#submitname{
+    margin:  10px;
+    border: none;
+    background-color: indianred;
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #toggle,#New{
+    margin-left: 0;
+    width: 150px;
+    color: #fff;
+  }
+  .xmark{
+    background-color: black;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .group{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Media query for smaller screens */
+  @media screen and (max-width: 600px) {
+    .user-details {
+      padding: 10px;
+    }
+
+    .user-details p {
+      font-size: 16px;
+    }
+  }
+
+  input[disabled] {
+    background-color: rgb(255, 254, 254);
+    color: rgb(0, 0, 0);
+
+     /* Add any other styles you want to apply to disabled elements */
+  }
+  .product-info {
+    width: 500px;
+    height: 400px;
+    background-color: #f7f3e9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 20px;
+    overflow-y: scroll ;
+  }
+
+  .details, .products {
+    margin-bottom: 10px;
+  }
+  .details {
+    cursor: pointer;
+  }
+  .products {
+    display: none;
+  }
+  .products.show {
+    display: block;
+  }
+
+  .card {
+    
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 460px;
+    max-height: 400px;
+    background-color: #f9f9f9;
+    overflow-y: scroll;
+  }
+  .details h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .details h5 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .products , .product {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  .product {
+    margin-bottom: 10px;
+  }
+  .product h5 {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .blue-button {
+    text-align: center;
+    background-color: #3498db; /* Blue shade */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+  }
+  
+  .blue-button:hover {
+    background-color: #2980b9; /* Darker shade of blue on hover */
+  }
+  
+
+
+  @media only screen and (max-width: 768px) {
+    body{
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .menuBtn {
+      display: block;
+      margin: 20px;
+    }
+    .logo {
+      display: none;
+    }
+    nav {
+      background-color: transparent;
+      max-width: 100%;
+      height: 100vh;
+      position: relative;
+    }
+    #navbar {
+      right: -500px;
+      top: 90;
+      position: absolute;
+      z-index: 999;
+      width: 300px;
+      height: 300px;
+      background-color: #4682a9;
+      display: flex;
+      color: #fff;
+      border-radius: 10px;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.2s ease-in-out;
+    }
+    #navbar li {
+      top: 0;
+      z-index: 999;
+      color: #fff;
+    }
+
+    #offer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  
+    .fridaysale h1 {
+      font-size: 100px;
+      color: rgb(0, 0, 0);
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .fridaysale {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      flex-direction: column;
+    }
+  
+    #footer {
+      max-height: 100vh;
+    }
+    .height {
+      height: 1000vh;
+    }
+    #main #page p {
+      margin-top: 20px;
+      font-size: 17px;
+    }
+  
+    #slider {
+      margin-left: 5px;
+    }
+    #product {
+      align-items: start;
+      height: 300vh;
+      
+    }
+    .mainProduct{
+      display: none !important;
+      width: 100%;
+      height: 700px;
+    }
+  
+    .product {
+      height: 1000px;
+    }
+
+    main{
+      overflow-x: hidden;
+      max-width: 100%;
+      flex-direction: column;
+    }
+    .product-info{
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .user-details{
+      max-width: 100%;
+    }
+    #username ,#name,#email,#contactNumber ,#address ,#currentPassword ,#newPassword{
+
+      width: 150px;
+
+    }
+    #contactNumber{
+      width: 120px;
+    }
+    label{
+      
+      font-size: 18px;
+      
+    }
+    .card{
+      max-width: 90%;
+    }
+
+  }

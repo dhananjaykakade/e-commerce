@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="path/to/chart.min.js"></script>
+
+</head>
+<body>
+  <header>
+    <div class="logo">Your Logo</div>
+    <nav>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Tables</a></li>
+        <li><a href="#">Graphs</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+    <div class="user-profile">
+      <img src="user-avatar.jpg" alt="User Avatar">
+      <div class="user-options">
+        <span>User Name</span>
+        <ul>
+          <li><a href="#">Account Settings</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Dashboard Overview Section -->
+    <section id="dashboard">
+      <h2>Dashboard Overview</h2>
+      <!-- Summary Graphs and Quick Stats -->
+      <div class="graphs">
+        <canvas id="salesChart"></canvas>
+        <div class="quick-stats">
+          <div>Total Sales: <span id="totalSales">1000</span></div>
+          <div>Total Users: <span id="totalUsers">500</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tables Section -->
+    <section id="tables">
+      <h2>Tables</h2>
+      <!-- Data Table -->
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Registration Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Table data will be populated dynamically using JavaScript -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Your Company</p>
+    <ul>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>

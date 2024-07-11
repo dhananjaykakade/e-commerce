@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/product/bag.css" />
+    <!-- <link rel="stylesheet" href="../css/shop.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- Add these lines to include SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    </link>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <title>BAG</title>
+
+</head>
+
+<body>
+    <section id="main">
+        <nav class="nav">
+            <div class="logo">
+                <a href="/">
+                    <img src="../assets/main/logo1.png" class="logo" />
+                </a>
+            </div>
+            <ul id="navbar">
+
+                <li>
+                    <a href="/about"> About</a>
+                </li>
+                <li>
+                    <a href="/contact"> contact us</a>
+                </li>
+            </ul>
+            <div class="log">
+                <ul>
+                    <li>
+                        <a href="/bag"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <% if (isAuthenticated) { %>
+                            <!-- If the user is authenticated, show profile and logout links -->
+                            <a href="#" class="dropbtn">Welcome, <%= user && user.username %></a>
+                            <div class="dropdown-content">
+                                <a href="/profile/<%= encodeURIComponent(user._id) %>">Profile</a>
+                                <a href="/logout">Logout</a>
+                            </div>
+                            <% } else { %>
+                                <!-- If the user is not authenticated, show login and register links -->
+                                <a href="#" class="dropbtn">Log In</a>
+                                <div class="dropdown-content">
+                                    <a href="/register">Register</a>
+                                    <a href="/login" id="login-link">Log In</a>
+                                </div>
+                                <% } %>
+                    </li>
+                </ul>
+            </div>
+            <div class="menuBtn">
+                <i id="MenuBtn" class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
+            </div>
+        </nav>
+        <div class="parent">
+
+            <h2>BAG</h2>
+
+            <div class="product">
+
+                <% if (cart && cart.items) { %>
+                    <%if(UserActivation== true){%>
+                        <% cart.items.forEach(function(item) { %>
+                            <div class="content" id="item-<%= item._id %>">
+
+                                <div class="pic">
+                                    <img id="pic" src="<%= item.product.imageUrls[0] %>" alt="" />
+                                </div>
+                                <div class="details">
+                                    <h4>
+                                        <%= item.product.name %>
+                                    </h4>
+
+                                    <span id="priceValue">₹ <%= item.product.price %></span>
+
+
+
+                                    <p id="tax">
+                                        incl. of taxes
+                                        <br />
+                                        <strong>(Also includes all applicable duties)</strong>
+                                    </p>
+                                    <div class="selector">
+                                        <div class="size-selector">
+                                            <label for="size">Select quantity:</label>
+                                            <select onchange="updateQuantity('<%= item._id %>', this)">
+                                                <% for (let i=1; i <=10; i++) { %>
+                                                    <option value="<%= i %>" <%=i===item.quantity ? 'selected' : '' %>>
+                                                        <%= i %>
+                                                    </option>
+                                                    <% } %>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <button class="removeBtn" onclick="removeItem('<%= item._id %>')">Remove</button>
+
+
+
+                                </div>
+
+                            </div>
+
+
+                            <% });} }%>
+
+                                <% if (isEmpty===true) { %>
+                                    <script>
+                                        // Replace the standard alert with SweetAlert
+                                        Swal.fire({
+                                            title: 'Your cart is empty!',
+                                            icon: 'warning',
+                                            button: 'OK',
+                                        });
+                                    </script>
+
+
+
+
+                                    <% } %>
+
+                                        <% if (notLogged) { %>
+                                            <% cartItem.forEach(function(item) { %>
+                                                <div class="content" id="item-<%= item.product._id %>">
+
+                                                    <div class="pic">
+                                                        <img id="pic" src="<%= item.product.imageUrls[0] %>" alt="" />
+                                                    </div>
+                                                    <div class="details">
+                                                        <h4>
+                                                            <%= item.product.name %>
+                                                        </h4>
+
+                                                        <span>₹ <%= item.product.price %></span>
+
+
+
+                                                        <p id="tax">
+                                                            incl. of taxes
+                                                            <br />
+                                                            <strong>(Also includes all applicable duties)</strong>
+                                                        </p>
+                                                        <div class="selector">
+                                                            <div class="size-selector">
+                                                                <label for="size">Select quantity:</label>
+                                                                <select
+                                                                    onchange="updateQuantity('<%= item.product._id %>', this)">
+                                                                    <% for (let i=1; i <=10; i++) { %>
+                                                                        <option value="<%= i %>" <%=i===item.SessionQuantity
+                                                                            ? 'selected' : '' %>><%= i %>
+                                                                        </option>
+                                                                        <% } %>
+
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <button class="removeBtn"
+                                                            onclick="removeItem('<%= item.product._id %>')">Remove</button>
+
+
+
+                                                    </div>
+
+                                                </div>
+
+                                                <% }); %>
+
+                                                    <% } %>
+
+
+
+
+
+
+
+                                                        <!-- for user who is not auth -->
+
+
+            </div>
+
+
+
+            <div class="info">
+                <h2>PRODUCT DETAILS</h2>
+                <div class="all-details">
+                    <div class="price">
+                        <p>Sub-total</p>
+                        <% if (cart && cart.items) { %>
+                            <span id="subtotal">₹<%= total(cart.items)%></span>
+                            <%}else if(notLogged) {%>
+                                <span id="subtotal">₹<%= SessionCalculateSubTotal(cartItem) %></span>
+                        <% } else {%>
+
+                            <span id="subtotal">₹0 %></span>
+                        <%}%>
+                        
+
+
+                    </div>
+                    <div class="price">
+                        <p>Delivery tax</p>
+                        <span>₹250</span>
+                    </div>
+                    <div class="price">
+                        <p>Total</p>
+                        <% if (cart && cart.items) { %>
+                            <span id="totalPrice">₹<%= calculateTotal(cart.items) %></span>
+                            <%}else if(notLogged) {%>
+                                <span id="totalPrice">₹<%= SessionCalculateTotal(cartItem)%></span>
+
+                            <% } else {%>
+
+                                <span id="totalPrice">₹0 %></span>
+                                <%}%>
+
+                    </div>
+
+
+                    <div class="buy">
+                        <button id="checkout">CHECK OUT</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <footer id="footer">
+        <div class="col">
+            <img class="logo" src="../assets/main/logo1.png" alt="" />
+            <h4><strong>CONTACT :</strong></h4>
+            <p>
+                <strong>ADDRESS:</strong>The FFF 410 Terry Ave N, Seattle 98109, WA.
+            </p>
+            <p><strong>PHONE:</strong>763847343,45345353</p>
+            <p><strong>HOURS:</strong>10:00 to 19:00 mon.to fri.</p>
+            <div class="follow">
+                <h4>Follow</h4>
+                <div class="follow-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-github"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+        </div>
+        <div class="col install">
+            <h4>Install</h4>
+            <p>from app store or google play</p>
+            <div class="row">
+                <img src="../assets/pay/app.jpg" alt="" />
+                <img src="../assets/pay/play.jpg" alt="" />
+            </div>
+            <p>from app store or google play</p>
+            <img src="../assets/pay/pay.png" alt="" />
+        </div>
+        <div class="copyright">
+            <p>© Copyright Dhananjay kakade 2023</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="../javascripts/product/products.js"></script>
+    <script src="../javascripts/product/bag.js"></script>
+
+
+
+    <script>
+
+
+
+        console.log('Script is running');
+
+        function calculateTotal(items) {
+            let total = 0;
+
+            // Loop through all items in the cart and calculate the total price
+            items.forEach(function (item) {
+                total += item.product.price * item.quantity + 250;
+            });
+
+            return total;
+        }
+        function updateQuantity(itemId, selectElement) {
+            const newQuantity = selectElement.value;
+            const totalElement = document.querySelector('#totalPrice');
+
+            fetch('/bag/updateQuantity', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ itemId, newQuantity }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Quantity updated') {
+                        if (data.updatedTotal !== null) {
+                            totalElement.textContent = `₹${data.updatedTotal}`;
+
+                           
+                        } else {
+                            // Element not found, handle the error gracefully
+                            console.error('Element not found');
+                        }
+
+                        location.reload();
+                        // Debugging: Check if auto-reload is triggered
+
+                    }
+
+                })
+                .catch(error => {
+                    console.error('Failed to update item quantity:', error);
+                });
+        }
+
+
+        function removeItem(itemId) {
+            console.log('Removing item')
+            fetch('/bag/remove', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ itemId }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Item removed from the cart') {
+                        const removedItemElement = document.querySelector(`#item-${itemId}`);
+                        removedItemElement.remove();
+                        location.reload();
+                        // Update the total price in real-time
+                        const totalElement = document.querySelector('#totalPrice');
+                        if (data.updatedTotal !== null) {
+                            totalElement.textContent = `₹${data.updatedTotal}`;
+                            location.reload();
+                        }
+
+                    }
+
+                    
+                })
+                .catch(error => {
+                    console.log('Failed to remove item:', error);
+                });
+        }
+
+
+        const checkout = document.getElementById("checkout")
+        checkout.addEventListener('click', function () {
+            // Redirect to a different page
+            window.location.href = '/payment/checkout'; // Replace with your desired URL
+        });
+
+
+        const price = document.getElementById("priceValue").value
+        console.log(price)
+
+
+      
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

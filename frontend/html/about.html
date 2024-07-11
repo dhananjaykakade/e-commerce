@@ -1,111 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product Management Table</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
-  }
-  .container {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 800px;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    white-space: normal; /* Allow text to wrap */
-  }
-  th {
-    background-color: #f0f0f0;
-  }
-  .delete-btn {
-    background-color: #dc3545;
-    color: white;
-    padding: 6px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .delete-btn:hover {
-    background-color: #c82333;
-  }
-  .images-column {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .images-column img {
-    max-width: 100px;
-    max-height: 100px;
-  }
-</style>
+    <title>Internet Speed Tester</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        #results {
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-  <h2>Product Management</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Details</th>
-        <th>Price</th>
-        <th>Images</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody id="product-list">
-      <!-- Product entries will be added here -->
-    </tbody>
-  </table>
-</div>
-<script>
-  // Sample product data (replace with actual data from the backend)
-  const products = [
-    { name: 'Product 1', details: 'Details for Product 1 that can be very long and wrap onto multiple lines.', price: 100, images: ['product1.jpg', 'product1_2.jpg', 'product1_3.jpg'] },
-    { name: 'Product 2', details: '', price: 150, images: ['product2.jpg'] },
-    { name: 'Product 3', details: 'Details for Product 3', price: '', images: ['product3.jpg', 'product3_2.jpg'] },
-    { name: 'Product 4', details: '', price: '', images: [] },
-    // Add more products here...
-  ];
+    <div class="container">
+        <h1>Internet Speed Tester</h1>
+        <button id="startButton">Start Test</button>
+        <div id="results" style="display: none;">
+            <h2>Results</h2>
+            <p>Download Speed: <span id="downloadSpeed">Calculating...</span> Mbps</p>
+            <p>Upload Speed: <span id="uploadSpeed">Calculating...</span> Mbps</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const startButton = document.getElementById("startButton");
+            const results = document.getElementById("results");
+            const downloadSpeedElement = document.getElementById("downloadSpeed");
+            const uploadSpeedElement = document.getElementById("uploadSpeed");
 
-  const productList = document.getElementById('product-list');
+            startButton.addEventListener("click", function () {
+                startButton.disabled = true;
+                startButton.textContent = "Testing...";
 
-  products.forEach(product => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${product.name}</td>
-      <td>${product.details || '&nbsp;'}</td>
-      <td>${product.price || '&nbsp;'}</td>
-      <td class="images-column">${product.images.map(image => `<img src="${image}" alt="Product Image">`).join('')}</td>
-      <td><button class="delete-btn">Delete</button></td>
-    `;
+                setTimeout(function () {
+                    const downloadSpeed = Math.random() * 100;
+                    const uploadSpeed = Math.random() * 50;
 
-    const deleteButton = row.querySelector('.delete-btn');
-    deleteButton.addEventListener('click', () => {
-      row.remove(); // Remove the row when the Delete button is clicked
-    });
+                    downloadSpeedElement.textContent = downloadSpeed.toFixed(2);
+                    uploadSpeedElement.textContent = uploadSpeed.toFixed(2);
 
-    productList.appendChild(row);
-  });
-</script>
+                    results.style.display = "block";
+                    startButton.style.display = "none";
+                }, 3000); // Simulate a 3-second speed test
+            });
+        });
+    </script>
 </body>
 </html>

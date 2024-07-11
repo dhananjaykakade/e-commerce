@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/admin/admin.css">
+    <title>admin</title>
+</head>
+
+<body>
+    <div class="ck">
+
+
+        <div class="sidebar">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="/admin/manage-user">Users</a></li>
+                <li><a href="/admin/add-product">Products Add</a></li>
+                <li><a href="/admin/manage/product">manage Product</a></li>
+            </ul>
+        </div>
+
+
+
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+    <section>
+        <div class="container-wrapper">
+            <div class="container">
+                <h3>User Count :</h3>
+                <span id="userCount"></span>
+            </div>
+            <div class="container">
+                <h3>Product Sale :</h3>
+                <span id="totalSales"></span>
+            </div>
+            <div class="container">
+
+                <h3>Payment Counts :</h3>
+                <span id="productSales"></span>
+            </div>
+
+        </div>
+        <div class="c">
+            <h2>Graphs</h2>
+
+            <div class="content">
+
+                <div class="chart-container">
+                    user
+                    <canvas id="userCountChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    product
+                    <canvas id="productSalesChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    payments
+                    <canvas id="paymentMethodsChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="table_group">
+            <div class="table-container">
+                <h2>Latest 10 Users</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody id="latestUsersTableBody">
+                        <!-- Latest users data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+    
+            <div class="table-container">
+                <h2>Latest 10 Payments</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="latestPaymentsTableBody">
+                        <!-- Latest payments data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+        </div>
+
+
+
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
+    <script src="../javascripts/admin/admin.js"></script>
+</body>
+
+</html>

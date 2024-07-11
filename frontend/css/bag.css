@@ -233,8 +233,10 @@ footer */
 .product{
     margin-right: 20px;
     width: 50%;
-    /* display: flex; */
-    /* justify-content: space-between; */
+    flex: 1;
+            height: 100vh; /* Set the height to the viewport height for full-page scrolling */
+            overflow-y: scroll; /* Enable vertical scrolling */
+            padding: 20px;
 }
 #pic{
     width: 200px;

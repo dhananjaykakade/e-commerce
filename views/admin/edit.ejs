@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/admin/admin-product.css">
+    <title>products</title>
+</head>
+
+<body>
+   
+       
+        <div class="sidebar">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="/admin/dashboard">Dashboard</a></li>
+                <li><a href="/admin/manage-user">Users</a></li>
+                <li><a href="/admin/add-product">Products Add</a></li>
+                <li><a href="/admin/manage/product">manage Product</a></li>
+                        </ul>
+        </div>
+
+
+
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <section>
+        <main>
+            <div class="products-manage">
+                <form class="addnew" action="/admin/add-product"  enctype="multipart/form-data" method="post">
+                    <h4>Add New Products</h4>
+                    <p>Name of Product</p>
+                    <input placeholder="Name" name="name" type="text">
+                    <p>Details</p>
+                    <input placeholder="details" name="details" type="text">
+                    <p>Price</p>
+                    <input placeholder="offer_price" name="offer_price" type="Number">
+                    <input placeholder="discount" name="discount" type="Number">
+                    <p>Images</p>
+                    <input type="file" name="images[]" placeholder="Image" multiple/>
+                    <input type="file" name="images[]" placeholder="Image">
+                    <input type="file" name="images[]" placeholder="Image">
+                    <P>Category</P>
+                    <div class="Category">
+                        <label for="Category">Select Category</label>
+                        <select id="size" name="category" name="size">
+                            <option value="PANTS">PANTS</option>
+                            <option value="SHIRTS">SHIRTS</option>
+                            <option value="SNEAKERS">SNEAKERS</option>
+                        </select>
+                    </div>
+                    <input id="submit" type="submit">
+                </form>
+            </div>
+        </main>
+    </section>
+    <script src="../javascripts/admin/admin.js"></script>
+</body>
+
+</html>

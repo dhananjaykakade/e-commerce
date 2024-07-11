@@ -1,0 +1,304 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+  --progress-zIndex: -1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+
+  font-family: "Muli", sans-serif;
+  height: 100vh;
+
+  margin: 0;
+}
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+}
+.stepper {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  max-width: 100%;
+  position: relative;
+  width: 500px;
+}
+
+.progress-container::before {
+  background-color: var(--line-border-empty);
+  content: "";
+  height: 4px;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: var(--progress-zIndex);
+}
+
+.progress {
+  background-color: var(--line-border-fill);
+  height: 4px;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.4s ease;
+  width: 0%;
+  z-index: var(--progress-zIndex);
+}
+
+.circle {
+  align-items: center;
+  background-color: #fff;
+  border: 3px solid #e0e0e0;
+  border-radius: 50%;
+  color: #999;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  transition: 0.4 ease;
+  width: 30px;
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  background-color: var(--line-border-fill);
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  margin: 5px;
+  padding: 8px 30px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}
+
+.buttons {
+  margin-bottom: 50px;
+}
+
+.step {
+  width: 900px;
+  height: 500px;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.detail-container {
+  padding: 30px;
+  height: 50%;
+}
+.detail-container label {
+  font-weight: 600;
+  font-size: 20px;
+  padding: 4px;
+}
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+#username,
+#name,
+#email,
+#contactNumber,
+#address,
+#currentPassword,
+#newPassword {
+  padding-top: 4px;
+  height: 30px;
+  border: none;
+  width: 250px;
+  font-size: 18px;
+  border-bottom: 2px solid black;
+  background-color: #f7f3e9;
+  padding-right: 20px;
+}
+#submitaddress {
+  background-color: #3498db; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.detail-user {
+  padding-left: 30%;
+  padding-top: 10%;
+  text-align: left;
+  color: #999;
+}
+span {
+  padding: 10px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #7ac142;
+  }
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142; /* Use the specified green color */
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.650, 0.000, 0.450, 1.000) forwards;
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff; /* Set checkmark color to white */
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142; /* Use the specified green color */
+  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.650, 0.000, 0.450, 1.000) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+.contBtn{
+  text-decoration: none;
+  margin-top: 10px;
+  background-color: #3498db; /* Blue shade */
+  color: #fff; /* White text color */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none; /* Remove default button border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Show pointer cursor on hover */
+  transition: background-color 0.3s; 
+}
+.contBtn:hover {
+  background-color: #2980b9; /* Green shade */
+}
+.bt{
+  
+  margin: 20px;
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #7ac142; /* Replace with the actual color value */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body{
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+.main{
+  overflow-x: hidden;
+  max-width: 100%;
+}
+.stepper{
+  padding: 10px;
+}
+.step {
+  padding: 10px;
+  width: 90%;
+  margin: 10px;
+ 
+  overflow: hidden;
+}
+.step-container {
+  width: 100%;
+  margin: 10px;
+}
+.detail-user{
+  padding-left: 10px;
+}
+}
+

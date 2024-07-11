@@ -14,6 +14,7 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <title>FRESH FIT FINDS</title>
 </head>
 
@@ -21,58 +22,65 @@
     <section id="main">
         <video autoplay loop muted src="../assets/main/vid1.mp4" class="back-vid"></video>
         <nav class="nav">
+
             <div class="logo">
                 <a href="#">
                     <img src="../assets/main/logo1.png" class="logo">
                 </a>
             </div>
             <ul id="navbar">
-                <li class="dropdown">
-                    <a href="#" class="dropbtn"> shop</a>
-                    <div class="dropdown-content">
-                        <a href="#">SHIRTS</a>
-                        <a href="#">PANTS</a>
-                        <a href="#">SNEAKERS</a>
-                    </div>
+                <li>
+                    <a class="a" href="/products"> SHOP</a>
                 </li>
                 <li>
-                    <a href="#"> About</a>
-                </li>
+                    <a class="a" href="#"> About</a>
+                </li>        
                 <li>
-                    <a href="#"> contact us</a>
+                    <a class="a" href="#"> contact us</a>
                 </li>
             </ul>
             <div class="log">
                 <ul>
                     <li>
-                        <a href="#"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+                        <a href="/bag"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
                     </li>
-                    <li>
-                        <a href="#"> LOG IN</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn"> LOG IN</a>
+                        <div class="dropdown-content">
+                            <a href="/register">register</a>
+                            <a href="/Login">profile</a>
+                            <a href="#">log out</a>
+                        </div>
                     </li>
+                   
                 </ul>
+              
             </div>
+            <div class="menuBtn"  >
+                <i id="MenuBtn" class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
+            </div>
+           
         </nav>
         <!-- <div class="com">
         <h1><h1>fresh fit finds</h1>
         <p>| collaborated with well known brands |</p></h1>
     </div>
         -->
-        <div class="containt" id="page">
+        <div class="containt" id="page" >
             <h1 data-aos="fade-down" data-aos="fade-down" data-aos-offset="200" data-aos-delay="50"
                 data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="">fresh fit
                 finds</h1>
-            <p data-aos="fade-up" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000"
+            <p id="collab" data-aos="fade-up" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000"
                 data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="">| collaborated with well known
                 brands |</p>
         </div>
-    </section>
+    </section >
     <section id="offer">
         <div data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000" class="fridaysale">
             <h1>FRIDAY SALE </h1>
             <p>GET UP TO 50% OFF</p>
         </div>
-        <div data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" class="container-caro">
+        <div  id="slider" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" class="container-caro">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -94,7 +102,7 @@
             </div>
         </div>
     </section>
-    <section id="product">
+    <section id="product" class="product height">
         <div class="products">
             <h1>GET OFFER ON SELECTED PRODUCTS</h1>
             <P>| FRESH FIT FINDS |</P>
@@ -142,7 +150,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col ">
             <h4>About</h4>
             <a href="#">About Us</a>
             <a href="#">Delivery Information</a>
@@ -176,6 +184,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../javascripts/index.js"></script>
     <script src="../javascripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="locomotive-scroll.min.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/payment/card.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src= 
+        "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"> 
+            </script> 
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="container p-0">
+        <div class="card px-4">
+            <p class="h8 py-3">Payment Details</p>
+            <h5 style="text-align: center;">expiry time <span style="color: red;" id="timer"></span></h5>
+            
+            <form id="card-form" action="/payment" method="post">
+                <div style="display: flex; justify-content: center; align-items: center; padding: 20px;">
+
+                    <canvas id="qrcode"  class="qrcode"></canvas>
+                </div>
+                <h6>Transaction id <span><%= id%></span> </h6>
+                <input type="hidden" name="transactionId" value="<%= id%>">
+
+                <div class="row gx-3">
+                    <div class="col-12">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1">Person Name</p>
+                            <input class="form-control mb-3" type="text" placeholder="Name" name="Name" required>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex flex-column">
+                            <p class="text mb-1">UPI Number</p>
+                            <input class="form-control mb-3" type="text" placeholder="@ybl" name="upiNumber" required>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="id" value="<%=user._id%>">
+                <input type="hidden" id="amount" value="<%= total %>" name="amount">
+                <input type="hidden" value="upi" name="type">
+                <input id="date" type="hidden" name="date">
+
+                <div class="col-12">
+                    <button type="submit" id="btn" class="btn btn-primary mb-3">
+                        <span class="ps-3">Pay RS <%= cart %></span>
+                        
+                        <span class="fas fa-arrow-right"></span>
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script>
+        // Function to start timer
+        const date = document.getElementById("date")
+        date.value = new Date();
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+           
+            var fiveMinutes = 5 * 60,
+                display = document.querySelector('#timer');
+            startTimer(fiveMinutes, display);
+
+           
+        };
+         // Generate QR code with the amount from backend
+         
+         
+         
+    </script>
+    <script type="text/javascript">
+        const total = document.getElementById("amount").value
+        var qrcode = new QRious({
+          element: document.getElementById("qrcode"),
+          background: '#ffffff',
+          backgroundAlpha: 1,
+          foreground: '#000000',
+          foregroundAlpha: 1,
+          level: 'H',
+          padding: 0,
+          size: 128,
+          value: total
+        });
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href=".css/admin/styles.css">
+</head>
+<body>
+  <h1>Add a New Product</h1>
+  <form id="product-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" required><br><br>
+    <label for="image">Image URL:</label>
+    <input type="file" name="images[]" multiple />
+
+    <!-- <input type="file" id="image" name="images[]" multiple required><br><br> -->
+    <input type="submit" value="Add Product">
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#product-form').submit(function(e) {
+        e.preventDefault();
+        const name = $('#name').val();
+        const price = $('#price').val();
+        const image = $('#image').val();
+        $.ajax({
+          url: '/add-product',
+          method: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({ name, price, image }),
+          success: function(response) {
+            alert(response.message);
+          },
+          error: function(error) {
+            alert('An error occurred');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

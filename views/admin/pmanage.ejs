@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/admin/productmanages.css">
+    <title>products-manage</title>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="/admin/dashboard">Dashboard</a></li>
+            <li><a href="/admin/manage-user">Users</a></li>
+            <li><a href="/admin/add-product">Products Add</a></li>
+            <li><a href="/admin/manage/product">manage Product</a></li>
+        </ul>
+    </div>
+
+
+
+    <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <section>
+
+
+        <div class="container">
+            <h2>Product Management</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Category</th>
+                        <th>Name</th>
+                        <th>Details</th>
+                        <th>Price</th>
+                        <th>offer_price</th>
+                        <th>discount</th>
+                        <th>Image</th>
+
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list">
+                    <% products.forEach((product,index)=> { %>
+                        <tr>
+                            <td>
+                                <%= index+1 %>&nbsp;
+                            </td>
+                            <td>
+                                <%= product.category %>&nbsp;
+                            </td>
+                            <td>
+                                <%= product.name %>&nbsp;
+                            </td>
+                            <td>
+                                <%= product.details %>&nbsp;
+                            </td>
+                            <td>
+                                <%= product.price %>&nbsp;
+                            </td>
+                            <td><del>
+                                    <%= product.offer_price %>
+                                </del>&nbsp;</td>
+                            <td>
+                                <%= product.discount %>%&nbsp;
+                            </td>
+                            <td class="images-column">
+                                <% product.imageUrls.forEach(imageUrl=> { %>
+                                    <img src="<%= imageUrl %>" alt="<%= imageUrl %>">
+                                    <% }); %>
+                            </td>
+
+
+                            <td>
+                                <form method="POST" action="/admin/manage/product/<%= product._id %>?_method=DELETE">
+
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+
+
+
+
+
+        </div>
+        
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/javascripts/admin/admin.js"></script>
+
+
+</body>
+
+</html>

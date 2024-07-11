@@ -1,0 +1,292 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="/css/main/profile.css">
+  <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="logo">
+      <a href="/">
+        <img src="../assets/main/logo1.png" class="logo">
+      </a>
+    </div>
+    <ul id="navbar">
+      <li>
+        <a class="a" href="/product"> SHOP</a>
+      </li>
+      <li>
+        <a class="a" href="/about"> About</a>
+      </li>
+      <li>
+        <a class="a" href="/contact"> contact us</a>
+      </li>
+    </ul>
+    <div class="log">
+      <ul>
+        <li>
+          <a href="/bag"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+        </li>
+        <li class="dropdown">
+          <% if (isAuthenticated) { %>
+            <!-- If the user is authenticated, show profile and logout links -->
+            <a href="#" class="dropbtn">Welcome, <%= user && user.username %></a>
+            <div class="dropdown-content">
+              <a href="/profile/<%= encodeURIComponent(user._id) %>">Profile</a>
+              <a href="/logout">Logout</a>
+            </div>
+            <% } else { %>
+              <!-- If the user is not authenticated, show login and register links -->
+              <a href="#" class="dropbtn">Log In</a>
+              <div class="dropdown-content">
+                <a href="/register">Register</a>
+                <a href="/login" id="login-link">Log In</a>
+              </div>
+              <% } %>
+        </li>
+      </ul>
+    </div>
+    <div class="menuBtn">
+      <i id="MenuBtn" class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
+    </div>
+  </nav>
+  <main>
+
+    <div class="user-details">
+
+
+      <h3>Update Profile</h3>
+
+      <form id="updateForm" action="/profile/<%= encodeURIComponent(userId) %>" method="post">
+        <div class="container">
+
+          <label for="username">Username:</label>
+          <input type="text" id="username" placeholder=" <%= user.username %>" value="<%= user.username %>" disabled
+            name="username"><br><br>
+          <button style="display: block;" type="menu" id="userBtn"><i class="fa-solid fa-pencil fa-lg"
+              style="color: #ffffff;"></i></button>
+          <button style="display: none;" id="submituser" value="SUBMIT" type="submit"><i
+              class="fa-solid fa-check fa-fade fa-lg" style="color: #ffffff;"></i></button>
+          <button type="reset" style="display: none;" id="userBtnx"><i class="fa-solid fa-xmark fa-xl"
+              style="color: #fcfcfd;"></i></button>
+        </div>
+        <div class="container">
+          <label for="name">name:</label>
+          <input type="text" id="name" placeholder=" <%= user.name %>" value="<%= user.name %>" disabled
+            name="name"><br><br>
+          <button style="display: block;" id="nameBtn"><i class="fa-solid fa-pencil fa-lg"
+              style="color: #ffffff;"></i></button>
+          <button style="display: none;" id="submitname" value="SUBMIT" type="submit"><i
+              class="fa-solid fa-check fa-fade fa-lg" style="color: #ffffff;"></i></button>
+          <button type="button" style="display: none;" id="namex"><i class="fa-solid fa-xmark fa-xl"
+              style="color: #fcfcfd;"></i></button>
+        </div>
+
+        <div class="container">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder=" <%= user.email %>" name="email" value=" <%= user.email %>"
+            disabled><br><br>
+          <button style="display: block;" id="EmailBtn"><i class="fa-solid fa-pencil fa-lg"
+              style="color: #ffffff;"></i></button>
+          <button style="display: none;" id="submitemail" value="SUBMIT" type="submit"><i
+              class="fa-solid fa-check fa-fade fa-lg" style="color: #ffffff;"></i></button>
+          <button type="reset" style="display: none;" id="EmailBtnx"><i class="fa-solid fa-xmark fa-xl"
+              style="color: #fcfcfd;"></i></button>
+        </div>
+
+        <div class="container">
+          <label for="contactNumber">Contact Number:</label>
+          <input type="text" id="contactNumber" placeholder=" <%= user.contactNumber %>"
+            value=" <%= user.contactNumber %>" maxlength="11" name="contactNumber" onkeyup="validateContact()"
+            disabled><br><br>
+          <button style="display: block;" id="contactBtn"><i class="fa-solid fa-pencil fa-lg"
+              style="color: #ffffff;"></i></button>
+          <button style="display: none;" id="submitContact" type="submit">
+            <i class="fa-solid fa-check fa-fade fa-lg" style="color: #ffffff;"></i></button>
+          <button type="reset" style="display: none;" id="contactBtnx"><i class="fa-solid fa-xmark fa-xl"
+              style="color: #fcfcfd;"></i></button>
+        </div>
+
+        <div class="container">
+          <label for="contactNumber">Address:</label>
+          <input type="text" id="address" placeholder=" <%= user.address %>" value=" <%= user.address %>" name="address"
+            disabled><br><br>
+
+
+          <button style="display: block;" id="addressBtn"><i class="fa-solid fa-pencil fa-lg"
+              style="color: #ffffff;"></i></button>
+          <button style="display: none;" id="submitaddress" value="SUBMIT" type="submit"><i
+              class="fa-solid fa-check fa-fade fa-lg" style="color: #ffffff;"></i></button>
+          <button type="reset" style="display: none;" id="addressBtnx"><i class="fa-solid fa-xmark fa-xl"
+              style="color: #fcfcfd;"></i></button>
+        </div>
+        <input type="hidden" id="userId" value="<%= userId %>">
+        <!-- <input  id="submitaddress" value="SUBMIT" type="submit"> -->
+
+      </form>
+
+      <button id="toggle" style="display: block;">CHANGE PASSWORD</button><br>
+
+
+
+
+
+      <!-- Change Password Form -->
+      <div id="password-info" style="display: none;">
+        <div class="group">
+
+
+          <h2>Change Password</h2>
+          <div id="xmark" class="xmark">
+            <i class="fa-solid fa-xmark fa-xl" style="color: #fcfcfd;"></i>
+          </div>
+        </div>
+        <form id="changePasswordForm">
+
+          <div class="container">
+
+            <label for="currentPassword">Current Password:</label><br>
+            <input type="password" id="currentPassword" name="currentPassword" required><br><br>
+          </div>
+          <div class="container">
+
+            <label for="newPassword">New Password:</label><br>
+            <input type="password" id="newPassword" name="newPassword" required onkeyup="validatePassword()"><br><br>
+          </div>
+          <span id="passErr"></span><br><br>
+          <button id="New" type="submit">Change Password</button>
+        </form>
+
+      </div>
+    </div>
+
+    <!-- <div id="message"></div> -->
+    <div class="product-info">
+    
+      <div class="card-list">
+        <% if (paymentIsNull){%>
+          <span>NO Payment Found</span>
+          <%} else {%>
+        <% Payments.forEach((payment, index) => { %>
+        <div class="card">
+          <div class="details" onclick="ToggleProducts(this)">
+            <h4>ORDER DETAILS</h4>
+            <h5>PRICE : $<%= payment.amount %></h5>
+            <h5>TYPE : <%= payment.type %></h5>
+            <h5>Transaction ID : <%= payment.transactionId %></h5>
+            <h5>Date : <%= payment.date %></h5>
+          </div>
+          <div class="products">
+            <h4>PRODUCTS</h4>
+            <% payment.products.forEach((product, productIndex) => { %>
+            <div class="product">
+              <h5>Name :<%= product.name %> </h5>
+              <h5>Price :<%= product.price %> </h5>
+            </div>
+            <% }); %>
+            
+
+          </div>
+          <form id="myForm" action="/payment/get-ebill" method="post">
+            <input type="hidden" name="amount" value="<%= payment.amount %>">
+            <input type="hidden" name="Name" value="<%= payment.name %>">
+            <input type="hidden" name="transactionId" value="<%= payment.transactionId %>">
+            <input type="hidden" name="paymentId" value="<%= payment._id %>">
+            <input type="hidden" name="type" value="<%= payment.type %>">
+            <input type="hidden" name="Date" value="<%= payment.date %>">
+            <input type="hidden" name="paymentIndex" value="<%= index %>">
+            <% payment.products.forEach((product, productIndex) => { %>
+              <input type="hidden" name="productName_<%= productIndex %>" value="<%= product.name %>">
+              <input type="hidden" name="productPrice_<%= productIndex %>" value="<%= product.price %>">
+
+          <% }); %>
+          <input type="hidden" name="productsCount" value="<%= payment.products.length %>">
+            <input type="submit" class="blue-button" value="print bill" onclick="downloadFile()">
+            
+
+          </form>
+        </div>
+        <% }); %>
+        <%}%>
+      </div>
+    </div>
+
+
+
+  </main>
+  <div class="link-container"></div>
+  <script src="sweetalert2.all.min.js"></script>
+
+  <script>
+
+  async function downloadEbill() {
+  try {
+    // Make a POST request to the backend API
+    const response = await fetch('/payment/get-ebill', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+        // Add any other headers if needed
+      },
+      // Add any request body data if required
+      body: JSON.stringify({
+        // Add any data needed for the request body
+      })
+    });
+
+    // Check if the response is successful
+    if (response.ok) {
+      // Convert the response to a blob
+      const blob = await response.blob();
+
+      // Create a temporary URL for the blob
+      const url = window.URL.createObjectURL(blob);
+
+      // Create a temporary anchor element
+      const link = document.createElement('a');
+      link.href = url;
+
+      // Set the filename for the download
+      link.download = 'ebill.pdf';
+
+      // Programmatically click the anchor element to trigger the download
+      link.click();
+
+      // Clean up: remove the temporary URL and anchor element
+      window.URL.revokeObjectURL(url);
+    } else {
+      // Handle errors if the response is not successful
+      console.error('Error:', response.statusText);
+    }
+  } catch (error) {
+    // Handle any network or other errors
+    console.error('Error:', error);
+  }
+}
+  </script>
+  <script>
+    function ToggleProducts(clickedElement) {
+      const productsDiv = clickedElement.parentElement.querySelector('.products');
+      productsDiv.classList.toggle('show');
+    }
+  </script>
+  <!-- Your existing JavaScript code -->
+  <script src="../javascripts/main/profile.js"></script>
+  <script src="../javascripts/main/script.js"></script>
+
+
+</body>
+
+</html>

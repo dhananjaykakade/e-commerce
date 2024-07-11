@@ -1,0 +1,138 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* color: ; */
+    text-decoration: none;
+    font-family: roboto;
+    
+}
+
+section {
+  
+  color: #27374D;
+  width: 82%;
+  float: right;
+  padding: 20px;
+}
+
+.products-manage {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.addnew {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.addnew h4 {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.addnew p {
+  margin: 10px 0;
+}
+
+.addnew input[type="text"],
+.addnew input[type="number"],
+.addnew select {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.addnew input[type="file"] {
+  margin-bottom: 10px;
+}
+
+.addnew input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .addnew {
+      padding: 10px;
+  }
+}
+
+  .sidebar {
+    display: block;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #6096B4;
+    padding-top: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar h2 {
+    color: 27374D;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .sidebar ul li a {
+    color: #27374D;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+  
+  .hamburger-menu {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .bar {
+    width: 30px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .sidebar {
+        left: -250px;
+    }
+    .content {
+        margin-left: 0;
+    }
+    .hamburger-menu {
+        display: block;
+    }
+    section{
+        padding: 0%;
+        width: 100%;
+    }
+}
