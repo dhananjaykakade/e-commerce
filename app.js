@@ -49,7 +49,7 @@ const logger = require('./middleware/logger');
 
 // const cloudinary = require('./cloud/cloudnary');
 app.use(flash());
-const fs = require("fs");
+
 // *********************************************************************************
 const multer = require("multer");
 const { send } = require("process");
