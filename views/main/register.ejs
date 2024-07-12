@@ -4,10 +4,11 @@
 <head>
     <link rel="stylesheet" href="../css/main/main.css">
     <link rel="stylesheet" href="../css/main/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>REGISTER</title>
     <style>
         .error-message{
             text-align: center;
@@ -62,16 +63,7 @@
 
 
             </div>
-            <!-- <form id="login" class="input-group">
-                <input type="text" class="input-field" placeholder="User Name" required>
-                <span id="name-err"></span>
-                <input type="text" class="input-field" placeholder="Enter Password" required>
-                <span id="pass-err"></span><br><br>
-                 <input type="checkbox" class="chech-box"><span> Remember password</span> -->
-                <!-- <button id="submit-err" type="submit" class="sumbit-btn">Log In</button><br>
-                <span id="submit-err"></span> -->
-
-            <!-- </form> --> 
+          
 
             <% if (errorMessage && errorMessage.length > 0) { %>
                 <div class="error-message">
@@ -92,7 +84,9 @@
                 <span id="name-err-register"></span>
                 <input id="email" type="email" name="email" class="input-field" placeholder="Email Id" onkeyup=" validatemail()" required>
                 <span id="email-err-register"></span>
-                <input id="password" type="text" name="password" class="input-field" placeholder="Enter Password" onkeyup="validatePassword()" required>
+                <input id="password" type="password" name="password" class="input-field" placeholder="Enter Password" onkeyup="validatePassword()" required>
+                <button type="button" id="eyeOpen" class="input-icon"><i class="fa-regular fa-eye"></i></button>
+                <button type="button" id="close" class="input-icon"><i class="fa-regular fa-eye-slash"></i></button>
                 <span id="pass-err-register"></span><br><br>
 
         
@@ -101,13 +95,7 @@
 
             </form>
         </div>
-        <!-- <form class="input-group">
-        <input type="text" class="input-field" placeholder="User Name" required>
-        <input type="text" class="input-field" placeholder="Enter Password" required>
-        <input type="checkbox" class="chech-box"><span> Remember password</span>
-        <button type="submit" class="sumbit-btn">Log In</button>
 
-        </form> -->
         <footer id="footer">
 
             <div class="col">
@@ -150,7 +138,8 @@
     </div>
    
     <script src="../javascripts/main/login.js"></script>
-    <script src="../javascripts/main/script.js"></script>
+    <script src="../javascripts/main/login2.js"></script>
+
 
 </body>
 

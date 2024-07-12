@@ -118,6 +118,23 @@ align-items: center;
   text-transform: uppercase;
 }
 
+#password{
+  position: relative;
+}
+
+
+.input-icon {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+#eyeOpen{
+  display: none;
+}
 
 .check{
   margin-top: 10px;
@@ -126,6 +143,8 @@ span{
   margin-left: 3px;
   padding-bottom: 3px;
 }
+
+
 /* ***************************** */
 footer {
   padding: 30px;

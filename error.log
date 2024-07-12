@@ -210,3 +210,5 @@
 {"level":"error","path":"D:\\demoo\\fresh fit finds - Copy\\views\\product\\bagmain.ejs"}
 {"level":"error","path":"D:\\demoo\\fresh fit finds - Copy\\views\\product\\bagmain.ejs"}
 {"level":"error","path":"D:\\demoo\\fresh fit finds - Copy\\views\\product\\bagmain.ejs"}
+{"level":"error","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{},"setName":"atlas-adwpus-shard-0","stale":false,"type":"ReplicaSetNoPrimary"}}
+{"level":"error","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{},"setName":"atlas-adwpus-shard-0","stale":false,"type":"ReplicaSetNoPrimary"}}

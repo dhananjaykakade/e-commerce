@@ -10,7 +10,7 @@
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>LOGIN</title>
     <style>
         .error-message{
             text-align: center;
@@ -47,6 +47,10 @@
                 <li>
                     <a href="#"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
                 </li>
+                <li class="dropdown">
+                    <a href="/register" class="dropbtn"> REGISTER</a>
+                    
+                </li>
                
             </ul>
         </div>
@@ -79,7 +83,9 @@
             
             <form id="login" class="input-group" method="post" action="/Login" >
                 <input type="text" class="input-field" name="username" placeholder="User Name" required>
-                <input type="text" class="input-field"  name="password" placeholder="Enter Password" required>
+                <input id="password" type="password" class="input-field"  name="password" placeholder="Enter Password" required>
+                <button type="button" id="eyeOpen" class="input-icon"><i class="fa-regular fa-eye"></i></button>
+                <button type="button" id="close" class="input-icon"><i class="fa-regular fa-eye-slash"></i></button>
                 <!-- <input type="checkbox" class="chech-box"><span> Remember password</span> -->
                 <input class="sumbit-btn" type="submit">
                 <!-- <button type="submit" class="sumbit-btn">Log In</button> -->
@@ -130,7 +136,7 @@
         </div>
     </footer>
     <script src="../javascripts/main/login.js"></script>
-    <script src="../javascripts/main/script.js"></script>
+    <script src="../javascripts/main/login2.js"></script>
 
 </body>
 

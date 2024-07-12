@@ -76,9 +76,6 @@ passBtn.addEventListener('click',() => {
   passForm.style.display = "block";
   passBtn.style.display = "none";
   update.style.display = "none";
-  
-
-
 })
 const xmark = document.getElementById('xmark')
 xmark.addEventListener("click",() => {
@@ -93,10 +90,13 @@ function validatePassword() {
   var password = document.getElementById("newPassword").value;
   const PassErr = document.getElementById("passErr");
 
+  // Regular expression to check for at least 1 capital letter and 1 number
+  const capitalLetterRegex = /[A-Z]/;
+  const numberRegex = /[0-9]/;
+
   if (!password) {
     PassErr.style.color = "red";
-    PassErr.innerHTML =
-      "Please enter a valid password with at least 8 characters";
+    PassErr.innerHTML = "Please enter a valid password with at least 8 characters";
     return false;
   }
 
@@ -106,11 +106,25 @@ function validatePassword() {
     return false;
   }
 
+  if (!capitalLetterRegex.test(password)) {
+    PassErr.style.color = "red";
+    PassErr.innerHTML = "Password must contain at least one capital letter";
+    return false;
+  }
+
+  if (!numberRegex.test(password)) {
+    PassErr.style.color = "red";
+    PassErr.innerHTML = "Password must contain at least one number";
+    return false;
+  }
+
   PassErr.style.color = "green";
   PassErr.style.animation = "none";
   PassErr.innerHTML = "Valid password";
   return true;
 }
+
+
 
 // Event listener for form submission
 document
@@ -143,8 +157,8 @@ document
         // Optionally, clear the password fields
         document.getElementById("currentPassword").value = "";
         document.getElementById("newPassword").value = "";
-        document.getElementById("changePasswordForm").style.display = "none";
         togglePasswordForm(); // Toggle form visibility
+        update.style.display = "block";
       } else {
         const errorMessage = await response.json();
         

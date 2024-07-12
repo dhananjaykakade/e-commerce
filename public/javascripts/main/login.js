@@ -1,24 +1,5 @@
-// var x = document.getElementById("login");
-// var y = document.getElementById("register");
-// var z = document.getElementById("btn");
-// function register() {
-//   x.style.left = "-400px";
-//   y.style.left = "50px";
-//   z.style.left = "110px";
-// }
-// function login() {
-//   x.style.left = "50px";
-//   y.style.left = "450px";
-//   z.style.left = "0px";
-// }
 
-
-// z.addEventListener("click", () => {
-//   z.style.left = "110px";
-// });
-
-
-var Form = document.getElementById("register")
+var Form = document.getElementById("register");
 var RegisterErr = document.getElementById("submit-err-register");
 
 var NameErr = document.getElementById("name-err-register");
@@ -41,9 +22,31 @@ function validatname() {
 function validatePassword() {
   var password = document.getElementById("password").value;
 
+  const capitalLetterRegex = /[A-Z]/;
+  const numberRegex = /[0-9]/;
+
+  if (!password) {
+    PassErr.style.color = "red";
+    PassErr.innerHTML =
+      "Please enter a valid password with at least 8 characters";
+    return false;
+  }
+
   if (password.length < 8) {
     PassErr.style.color = "red";
-    PassErr.innerHTML = "Please enter a valid password with at least 8 characters";
+    PassErr.innerHTML = "Password must be at least 8 characters long";
+    return false;
+  }
+
+  if (!capitalLetterRegex.test(password)) {
+    PassErr.style.color = "red";
+    PassErr.innerHTML = "Password must contain at least one capital letter";
+    return false;
+  }
+
+  if (!numberRegex.test(password)) {
+    PassErr.style.color = "red";
+    PassErr.innerHTML = "Password must contain at least one number";
     return false;
   }
 
@@ -101,3 +104,4 @@ submitBt.onclick = function () {
   console.log("Validation passed");
   return true;
 };
+
