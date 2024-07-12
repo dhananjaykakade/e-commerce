@@ -42,6 +42,7 @@ const bag = require("./routes/bag");
 const Payment = require("./routes/payment");
 const errorHandler = require('./middleware/errorhandler');
 const logger = require('./middleware/logger');
+app.set('views', path.join(__dirname, 'views'));
 
 
 
