@@ -110,7 +110,9 @@ exports.getAdmin= (req, res) => {
       await newProduct.save();
   
       // Clean up the temporary uploaded files
-      req.files.forEach((file) => fs.unlinkSync(file.path));
+      req.files.forEach((file) => fs.unlink(file.path, (err) => {
+        if (err) console.error('Error deleting temp file:', err);
+      }));
   
       res.redirect("/admin/add-product");
     } catch (error) {
