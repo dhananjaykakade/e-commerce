@@ -40,7 +40,7 @@ const admin = require("./routes/admin");
 const product = require("./routes/product");
 const bag = require("./routes/bag");
 const Payment = require("./routes/payment");
-const errorHandler = require('./middleware/errorhandler');
+
 
 app.set('views', path.join(__dirname, 'views'));
 
@@ -123,9 +123,7 @@ app.use("/bag", bag);
 app.use("/payment", Payment);
 
 
-app.use((err, req, res, next) => {
-  errorHandler(err, req, res, next);
-});
+
 
 app.get("/demo1", (req, res) => {
   try {
