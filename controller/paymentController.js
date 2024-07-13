@@ -4,7 +4,8 @@ const payment = require("../database/payment");
 const Login = require("../database/register");
 const jwt = require("jsonwebtoken");
 const secretKey = "dhananjayprashnatkakade";
-const puppeteer = require("puppeteer");
+const puppeteer = require('puppeteer-core');
+const chromium = require('chrome-aws-lambda');
 const ejs = require("ejs");
 
 function calculateTotal(items) {
@@ -293,10 +294,8 @@ else{
   }
 };
 exports.getBill = async (req, res) => {
-  const authenticatedUserId = req.user.id; // Get authenticated user's ID
-  // Get requested user's ID from URL params
+  const authenticatedUserId = req.user.id; 
 
-  // Check if the authenticated user is trying to access their own profile
 
   try {
     PaymentDetails = {
@@ -306,7 +305,7 @@ exports.getBill = async (req, res) => {
       amount: req.body.amount,
       transactionId: req.body.transactionId,
     };
-    console.log(PaymentDetails);
+ 
 
     const user = await Login.findById(authenticatedUserId);
 
@@ -327,8 +326,14 @@ exports.getBill = async (req, res) => {
       user,
       PaymentDetails,
     });
+    const browser = await puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
+      headless: chromium.headless,
+    });
 
-    const browser = await puppeteer.launch();
+   
     const page = await browser.newPage();
     await page.setContent(htmlContent);
     const pdfBuffer = await page.pdf({ format: "A4" });
