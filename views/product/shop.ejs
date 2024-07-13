@@ -73,13 +73,13 @@
         <div class="dis">
             <div class="cards">
                 <div class="card1">
-                    <img src="../assets/products/jeans.jpg" alt="">
+                    <img src="https://res.cloudinary.com/dzfzgizf1/image/upload/v1720798301/a10_npjwfj.jpg" alt="">
                     <div class="card-content">
                         <h2>50% OFF</h2>
                     </div>
                 </div>
                 <div class="card1">
-                    <img src="../assets/products/n2.jpg" alt="">
+                    <img src="https://res.cloudinary.com/dzfzgizf1/image/upload/v1720798106/n1_z8meil.jpg" alt="">
                     <div class="card-content">
                         <h2>50% OFF</h2>
                     </div>
@@ -87,7 +87,7 @@
             </div>
             <div class="text-con">
                 <h1>GRAB YOUR OFFERS NOW</h1>
-                <a href="#sneakers">click here !</a>
+                <a id="clickBtn" href="#sneakers">click here !</a>
             </div>
         </div>
     </section>
@@ -187,7 +187,18 @@
                     }
                 }
             </script>
+<script>
+const clickBtn = document.getElementById('clickBtn');
 
+clickBtn.addEventListener('click', scrollPage);
+
+    function scrollPage() {
+      window.scrollBy({
+        top: 5000, 
+        behavior: 'smooth' 
+      });
+    }
+  </script>
 
 </body>
 

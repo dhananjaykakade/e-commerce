@@ -301,3 +301,11 @@ exports.postContact= async (req, res) => {
     res.status(500).json({ message: 'An error occurred while sending emails' });
   });
 }
+
+
+exports.getTerms = (req,res) => {
+  res.render("main/terms")
+};
+exports.getPrivacy = (req,res) => {
+  res.render("main/privacy")
+};

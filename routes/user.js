@@ -74,6 +74,8 @@ router.post("/change-password/:id",ensureAuthenticated, userController.postPassw
 router.get("/userRole",ensureAuthenticated, userController.getUserRole);
 router.get("/about", userController.getAbout);
 router.get("/contact", userController.getContact);
+router.get("/terms_and_conditions", userController.getTerms);
+router.get("/privacy_policy", userController.getPrivacy);
 router.post("/contact", userController.postContact);
 
 module.exports = router;

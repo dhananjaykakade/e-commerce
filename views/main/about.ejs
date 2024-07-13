@@ -1,108 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main/main.css">
-    <link rel="stylesheet" href="../css/main/about.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/main/main.css" />
+    <link rel="stylesheet" href="../css/main/about.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>about</title>
- 
-</head>
-<body>
+  </head>
+  <body>
     <nav class="nav">
-        <div class="logo">
-            <a href="/">
-                <img src="../assets/main/logo1.png" class="logo">
-            </a>
-        </div>
-        <ul id="navbar">
-            <li>
-                <a class="a" href="/product"> SHOP</a>
-            </li>
-            <li>
-                <a class="a" href="/about"> About</a>
-            </li>
-            <li>
-                <a class="a" href="/contact"> contact us</a>
-            </li>
+      <div class="logo">
+        <a href="/">
+          <img src="../assets/main/logo1.png" class="logo" />
+        </a>
+      </div>
+      <ul id="navbar">
+        <li>
+          <a class="a" href="/product"> SHOP</a>
+        </li>
+        <li>
+          <a class="a" href="/about"> About</a>
+        </li>
+        <li>
+          <a class="a" href="/contact"> contact us</a>
+        </li>
+      </ul>
+      <div class="log">
+        <ul>
+          <li>
+            <a href="/bag"
+              ><i class="fa-solid fa-cart-shopping" style="color: #ffffff"></i
+            ></a>
+          </li>
+          <li class="dropdown">
+            <% if (isAuthenticated) { %>
+            <!-- If the user is authenticated, show profile and logout links -->
+            <a href="#" class="dropbtn"
+              >Welcome, <%= user && user.username %></a
+            >
+            <div class="dropdown-content">
+              <a href="/profile/<%= encodeURIComponent(user._id) %>">Profile</a>
+              <a href="/logout">Logout</a>
+            </div>
+            <% } else { %>
+            <!-- If the user is not authenticated, show login and register links -->
+            <a href="#" class="dropbtn">Log In</a>
+            <div class="dropdown-content">
+              <a href="/register">Register</a>
+              <a href="/login" id="login-link">Log In</a>
+            </div>
+            <% } %>
+          </li>
         </ul>
-        <div class="log">
-            <ul>
-                <li>
-                    <a href="/bag"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
-                </li>
-                <li class="dropdown">
-                    <% if (isAuthenticated) { %>
-                        <!-- If the user is authenticated, show profile and logout links -->
-                        <a href="#" class="dropbtn">Welcome, <%= user && user.username %></a>
-                        <div class="dropdown-content">
-                            <a href="/profile/<%= encodeURIComponent(user._id) %>">Profile</a>
-                            <a href="/logout">Logout</a>
-                        </div>
-                        <% } else { %>
-                            <!-- If the user is not authenticated, show login and register links -->
-                            <a href="#" class="dropbtn">Log In</a>
-                            <div class="dropdown-content">
-                                <a href="/register">Register</a>
-                                <a href="/login" id="login-link">Log In</a>
-                            </div>
-                            <% } %>
-                </li>
-            </ul>
-        </div>
-        <div class="menuBtn">
-            <i id="MenuBtn" class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
-        </div>
+      </div>
+      <div class="menuBtn">
+        <i
+          id="MenuBtn"
+          class="fa-solid fa-bars fa-xl"
+          style="color: #ffffff"
+        ></i>
+      </div>
     </nav>
     <section>
-
-   
-    <div class="container">
+      <div class="container">
         <h1>About Us</h1>
-        <p>&#x2022; Welcome to Fresh Fit Finds, your go-to destination for the latest in fashion and footwear. We specialize in offering a wide range of stylish clothes and sneakers to keep you looking fresh and fit.</p>
-        <p>&#x2022; This website is a project created to showcase our passion for fashion and technology. While it serves as a platform to explore our offerings, it is part of a larger project aimed at honing our web development skills.</p>
-        <p>&#x2022; We hope you enjoy browsing through our collection and find something that fits your style. Thank you for visiting Fresh Fit Finds!</p>
-        <p>&#x2022; demo project by <b>Dhananjay Kakade </b> </p>
-    </div>
-</section>
-<footer id="footer">
-
-    <div class="col">
-        <img class="logo" src="../assets/main/logo1.png" alt="">
+        <p>
+          &#x2022; Welcome to Fresh Fit Finds, your go-to destination for the
+          latest in fashion and footwear. We specialize in offering a wide range
+          of stylish clothes and sneakers to keep you looking fresh and fit.
+        </p>
+        <p>
+          &#x2022; This website is a project created to showcase our passion for
+          fashion and technology. While it serves as a platform to explore our
+          offerings, it is part of a larger project aimed at honing our web
+          development skills.
+        </p>
+        <p>
+          &#x2022; We hope you enjoy browsing through our collection and find
+          something that fits your style. Thank you for visiting Fresh Fit
+          Finds!
+        </p>
+        <p>&#x2022; demo project by <b>Dhananjay Kakade </b></p>
+      </div>
+    </section>
+    <footer id="footer">
+      <div class="col">
+        <a href="/"
+          ><img class="logo" src="../assets/main/logo1.png" alt=""
+        /></a>
         <h4><strong>CONTACT :</strong></h4>
-        <p><strong>ADDRESS:</strong>The FFF 410 Terry Ave N, Seattle 98109, WA.</p>
+        <p>
+          <strong>ADDRESS:</strong>The FFF 410 Terry Ave N, Seattle 98109, WA.
+        </p>
         <p><strong>PHONE:</strong>763847343,45345353</p>
         <p><strong>HOURS:</strong>10:00 to 19:00 mon.to fri.</p>
         <div class="follow">
-            <h4>Follow</h4>
-            <div class="follow-icons">
-                <i class="fab fa-facebook-f"></i>
+          <h4>Follow</h4>
+          <div class="follow-icons">
+            <a href="#">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#">
                 <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-github"></i>
-            </div>
+            </a>
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-github"></i>
+            </a>    
+
+          </div>
         </div>
-    </div>
-    <div class="col">
+      </div>
+      <div class="col">
         <h4>About</h4>
         <a href="#">About Us</a>
-        <a href="#">Delivery Information</a>
         <a href="#">Privacy Policy</a>
-        <a href="#">Terms and Conditions</a>
-    </div>
-    <div class="col install">
+        <a href="/terms_and_conditions">Terms and Conditions</a>
+      </div>
+      <div class="col install">
         <h4>Install</h4>
         <p>from app store or google play</p>
         <div class="row">
-            <img src="../assets/pay/app.jpg" alt="">
-            <img src="../assets/pay/play.jpg" alt="">
+          <img src="../assets/pay/app.jpg" alt="" />
+          <img src="../assets/pay/play.jpg" alt="" />
         </div>
         <p>from app store or google play</p>
-        <img src="../assets/pay/pay.png" alt="">
-    </div>
-    <div class="copyright">
-        <p> © Copyright Dhananjay kakade 2023</p>
-    </div>
-</footer>
-</body>
+        <img src="../assets/pay/pay.png" alt="" />
+      </div>
+      <div class="copyright">
+        <p>© Copyright Dhananjay kakade 2023</p>
+      </div>
+    </footer>
+  </body>
 </html>

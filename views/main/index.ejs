@@ -83,6 +83,7 @@
             <p data-aos="fade-up" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000"
                 data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="">| collaborated with well known
                 brands |</p>
+                
         </div>
     </section>
 
@@ -98,7 +99,7 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="../assets/sneakers/s7.jpg" />
+                        <img src="https://res.cloudinary.com/dzfzgizf1/image/upload/v1720798365/s7_j8pgke.jpg" />
                         <h2>SNEAKERS UPTO 50% OFF</h2>
                     </div>
                     <div class="swiper-slide">
@@ -130,21 +131,21 @@
             <div data-aos="fade-down" data-aos-offset="200" data-aos-delay="10" data-aos-duration="1000"
                 data-aos-easing="ease-in-out" data-aos-mirror="true" class="container">
                 <div data-aos="flip-left" data-aos-delay="2000" data-aos-duration="3000" class="card">
-                    <a href="#"><img src="../assets/products/jeans.jpg " class="card-img"></a>
+                    <a href="/product"><img src="https://res.cloudinary.com/dzfzgizf1/image/upload/v1720798301/a10_npjwfj.jpg" class="card-img"></a>
                     <div class="card-content">
                         <h2>JEANS</h2>
                         <p>UPTO 50% OFF</p>
                     </div>
                 </div>
                 <div data-aos="flip-left" data-aos-delay="1000" data-aos-duration="2000" class="card">
-                    <a href="#"><img src="../assets/products/shirt.jpg" class="card-img"></a>
+                    <a href="/product"><img src="../assets/products/shirt.jpg" class="card-img"></a>
                     <div class="card-content">
                         <h2>SHIRTS</h2>
                         <p>UPTO 50% OFF</p>
                     </div>
                 </div>
                 <div data-aos="flip-left" data-aos-delay="1000" data-aos-duration="2000" class="card">
-                    <a href="#"><img src="../assets/sneakers/s10.jpg" class="card-img"></a>
+                    <a href="/product"><img src="../assets/sneakers/s10.jpg" class="card-img"></a>
                     <div class="card-content">
                         <h2>SNEAKERS</h2>
                         <p>UPTO 50% OFF</p>
@@ -230,27 +231,29 @@
     <script>
         AOS.init();
     </script>
+
+
     <script>
-        // Assuming you have set a global variable isAuthenticated on the client side
+       
         const isAuthenticated = JSON.stringify(isAuthenticated)
 
-        // Function to toggle visibility based on authentication status
+    
         function toggleAuthenticationElements() {
             const loginLink = document.getElementById('login-link');
             const logoutLink = document.getElementById('logout-link');
 
             if (isAuthenticated) {
-                // If authenticated, hide login link and show logout link
+             
                 loginLink.style.display = 'none';
                 logoutLink.style.display = 'block';
             } else {
-                // If not authenticated, show login link and hide logout link
+              
                 loginLink.style.display = 'block';
                 logoutLink.style.display = 'none';
             }
         }
 
-        // Call the function on page load
+       
         window.onload = toggleAuthenticationElements;
     </script>
     <script src="../javascripts/main/index.js"></script>
